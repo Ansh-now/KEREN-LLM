@@ -1,0 +1,23 @@
+# Model/training artifacts
+outputs/
+models/
+*.safetensors
+*.bin
+*.pt
+*.pth
+
+# Generated/local datasets
+# Keep validated Gold and checked-in source data; ignore generated benchmark/training outputs.
+evaluation/results/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# IDE / OS
+.vscode/
+.DS_Store
+Thumbs.db
