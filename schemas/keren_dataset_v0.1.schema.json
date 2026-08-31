@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://keren.local/schemas/keren_dataset_v0.1.schema.json",
+  "title": "KEREN Dataset V0.1",
+  "type": "object",
+  "required": ["schema_version", "id", "task", "user_input", "context", "intent", "safety", "decision", "final_output", "training_labels", "metadata"],
+  "properties": {
+    "schema_version": {"const": "keren_dataset_v0.1"},
+    "id": {"type": "string", "minLength": 1},
+    "task": {
+      "type": "object",
+      "required": ["category", "task_type", "difficulty", "output_mode"],
+      "properties": {
+        "category": {"type": "string"},
+        "task_type": {"enum": ["action", "answer", "debug", "code", "conversation", "decision"]},
+        "difficulty": {"enum": ["easy", "medium", "hard"]},
+        "output_mode": {"enum": ["action", "status", "answer", "debug", "code"]}
+      },
+      "additionalProperties": false
+    },
+    "user_input": {
+      "type": "object",
+      "required": ["text", "language", "input_type"],
+      "properties": {
+        "text": {"type": "string"},
+        "language": {"type": "string"},
+        "input_type": {"enum": ["text", "voice", "system", "event"]},
+        "normalized_text": {"type": ["string", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "context": {"type": "object"},
+    "intent": {"type": ["object", "null"]},
+    "node": {"type": ["object", "null"]},
+    "tool": {"type": ["object", "null"]},
+    "arguments": {"type": ["object", "null"]},
+    "safety": {"type": "object"},
+    "preconditions": {"type": "array"},
+    "plan": {"type": "array"},
+    "action": {"type": ["object", "null"]},
+    "observation": {"type": ["object", "null"]},
+    "verification": {"type": ["object", "null"]},
+    "recovery": {"type": ["object", "null"]},
+    "decision": {"type": "object"},
+    "final_output": {"type": "object"},
+    "training_labels": {
+      "type": "object",
+      "required": ["should_use_tool", "should_use_memory", "should_use_internet", "should_clarify", "should_confirm", "should_escalate", "should_recover", "should_refuse"],
+      "properties": {
+        "should_use_tool": {"type": "boolean"},
+        "should_use_memory": {"type": "boolean"},
+        "should_use_internet": {"type": "boolean"},
+        "should_clarify": {"type": "boolean"},
+        "should_confirm": {"type": "boolean"},
+        "should_escalate": {"type": "boolean"},
+        "should_recover": {"type": "boolean"},
+        "should_refuse": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "metadata": {"type": "object"}
+  },
+  "additionalProperties": false
+}

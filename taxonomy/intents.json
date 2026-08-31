@@ -1,0 +1,11 @@
+{
+  "version": "0.1",
+  "intents": [
+    "open_app", "open_url", "browser_search", "play_media", "list_information",
+    "send_message", "send_email", "create_draft", "file_operation", "run_command",
+    "device_control", "route_task", "query_status", "diagnose", "debug_code",
+    "generate_code", "explain", "answer_question", "clarify", "confirm_action",
+    "verify_action", "recover_action", "escalate", "refuse", "memory_lookup",
+    "procedure_lookup", "network_lookup", "unknown"
+  ]
+}

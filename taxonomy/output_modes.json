@@ -1,0 +1,10 @@
+{
+  "version": "0.1",
+  "modes": {
+    "action": "Ultra-compact structured execution output.",
+    "status": "One short user-facing execution/status message.",
+    "answer": "Concise useful explanation or answer.",
+    "debug": "Root cause, patch/fix, and verification strategy.",
+    "code": "Complete code required by the requested task."
+  }
+}
