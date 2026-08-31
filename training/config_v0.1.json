@@ -1,0 +1,19 @@
+{
+  "base_model": "Qwen/Qwen3-0.6B-Base",
+  "dataset": "datasets/compiled/keren_train_v0.1.jsonl",
+  "output": "outputs/keren-student-v0.1",
+  "epochs": 3.0,
+  "batch_size": 2,
+  "gradient_accumulation_steps": 8,
+  "effective_batch_size": 16,
+  "learning_rate": 0.0002,
+  "max_length": 2048,
+  "save_steps": 25,
+  "logging_steps": 5,
+  "warmup_ratio": 0.05,
+  "seed": 42,
+  "lora_r": 16,
+  "lora_alpha": 32,
+  "lora_dropout": 0.05,
+  "quantization": "nf4-4bit-double-quant"
+}
