@@ -5,9 +5,15 @@ Checks:
 - JSON syntax and schema
 - duplicate IDs across one or many files
 - taxonomy values (category, intent, output mode, reason code)
-- basic decision/training-label coherence
-- confirmation and verification safety invariants
+- output-mode coherence
+- confirmation/verification safety invariants
 - code-output quality heuristic
+
+Training labels such as should_confirm/should_recover describe the whole workflow,
+not necessarily the immediate decision.state. Therefore this validator does not
+force a one-to-one mapping between those labels and the current state. A task may
+legitimately continue safe preparation before confirmation, or wait for approval
+before a bounded recovery step.
 
 Examples:
     python validators/validate_dataset.py
@@ -80,29 +86,15 @@ def extract_reason_codes(record: dict) -> list[str]:
 
 
 def looks_like_complete_code(text: str) -> bool:
-    """Conservative heuristic: reject prose-only promises in code mode.
-
-    This intentionally does not try to compile arbitrary languages. It only
-    verifies that a code-mode target contains substantial code-like structure.
-    """
+    """Reject prose-only promises in code mode without pretending to compile it."""
     if not text or len(text.strip()) < 40:
         return False
 
-    lower = text.lower()
-    promise_only = [
-        "implement karunga",
-        "create karunga",
-        "code likhunga",
-        "i will implement",
-        "i'll implement",
-        "i will create",
-        "here's how i would",
-    ]
-    if any(p in lower for p in promise_only):
-        # A promise is acceptable only if real code is also present.
-        pass
-
-    fenced = re.search(r"```(?:python|py|dart|kotlin|java|cpp|c\+\+|c|arduino|json|bash|sh|powershell|yaml|yml)?\s*\n.+?```", text, re.S | re.I)
+    fenced = re.search(
+        r"```(?:python|py|dart|kotlin|java|cpp|c\+\+|c|arduino|json|bash|sh|powershell|yaml|yml)?\s*\n.+?```",
+        text,
+        re.S | re.I,
+    )
     if fenced:
         return True
 
@@ -168,14 +160,9 @@ def semantic_errors(
     decision = record.get("decision") or {}
     state = decision.get("state") if isinstance(decision, dict) else None
 
-    if labels.get("should_clarify") is True and state not in {"clarify", "blocked"}:
-        errors.append(f"should_clarify=true but decision.state={state!r}")
-    if labels.get("should_confirm") is True and state not in {"await_confirmation", "confirm", "blocked"}:
-        errors.append(f"should_confirm=true but decision.state={state!r}")
+    # Refusal is terminal enough that a direct contradiction is useful to flag.
     if labels.get("should_refuse") is True and state not in {"refuse", "blocked"}:
         errors.append(f"should_refuse=true but decision.state={state!r}")
-    if labels.get("should_recover") is True and state not in {"recover", "continue", "blocked"}:
-        errors.append(f"should_recover=true but decision.state={state!r}")
 
     safety = record.get("safety") or {}
     confirmation_required = False
