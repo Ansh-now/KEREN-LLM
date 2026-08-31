@@ -1,0 +1,23 @@
+{
+  "version": "0.1",
+  "status": "spec_only_no_test_examples_committed_yet",
+  "rule": "Benchmark prompts must remain unseen during training and synthetic expansion.",
+  "metrics": [
+    "intent_accuracy",
+    "structured_output_validity",
+    "node_selection_accuracy",
+    "tool_selection_accuracy",
+    "argument_accuracy",
+    "clarification_accuracy",
+    "confirmation_accuracy",
+    "offline_behavior_accuracy",
+    "verification_recovery_accuracy",
+    "fake_execution_rate",
+    "hinglish_stt_robustness",
+    "coding_debug_quality",
+    "latency_seconds",
+    "tokens_generated",
+    "peak_ram_mb"
+  ],
+  "comparisons": ["Qwen3-0.6B-Base", "KEREN-Student-V0.1", "Qwen3-1.7B-current-baseline"]
+}
