@@ -91,7 +91,7 @@ def looks_like_complete_code(text: str) -> bool:
         return False
 
     fenced = re.search(
-        r"```(?:python|py|dart|kotlin|java|cpp|c\+\+|c|arduino|json|bash|sh|powershell|yaml|yml)?\s*\n.+?```",
+        r"```(?:python|py|dart|kotlin|java|cpp|c\+\+|c|arduino|scad|openscad|json|bash|sh|powershell|yaml|yml)?\s*\n.+?```",
         text,
         re.S | re.I,
     )
