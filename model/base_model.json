@@ -1,0 +1,16 @@
+{
+  "project": "KEREN-LLM",
+  "stage": "v0.1-candidate",
+  "base_model": "Qwen/Qwen3-0.6B-Base",
+  "source": "https://huggingface.co/Qwen/Qwen3-0.6B-Base",
+  "license": "Apache-2.0",
+  "model_type": "Qwen3ForCausalLM",
+  "parameters_total": "0.6B",
+  "parameters_non_embedding": "0.44B",
+  "layers": 28,
+  "attention": {"query_heads": 16, "kv_heads": 8},
+  "context_length": 32768,
+  "transformers_minimum": "4.51.0",
+  "weights_policy": "Do not commit upstream model.safetensors to this Git repository. Download/cache weights from the pinned upstream model during training/inference. Commit only KEREN adapters/checkpoints when size and licensing permit.",
+  "status": "selected_for_baseline_and_specialization"
+}
