@@ -36,6 +36,21 @@ def quality_flags(prompt: str, output: str) -> list[str]:
         return ["empty_output"]
     if o == p or (len(p) >= 24 and p in o):
         flags.append("prompt_echo")
+    if "<|" in output or "|>" in output:
+        flags.append("special_token_artifact")
+    if re.search(r"\b(?:assistant|system)\s*:", output, re.IGNORECASE):
+        flags.append("role_leak")
+
+    prompt_has_options = bool(re.search(r"(?:\boption\b|\ba\)|\bb\)|\bc\)|\bd\))", p))
+    output_has_mcq = sum(bool(re.search(rf"(?m)^\s*{letter}[\).:]", output, re.IGNORECASE)) for letter in "ABCD") >= 2
+    if output_has_mcq and not prompt_has_options:
+        flags.append("fabricated_mcq")
+
+    if "sirf code" in p or "code only" in p or "sirf function" in p:
+        after_block = re.sub(r"```[\s\S]*?```", "", output).strip()
+        if after_block and len(after_block.split()) > 3:
+            flags.append("extra_text_after_code")
+
     words = re.findall(r"\w+", o)
     if len(words) >= 24:
         ngrams = [tuple(words[i:i + 4]) for i in range(len(words) - 3)]
@@ -133,7 +148,7 @@ def main() -> int:
     pct = 100.0 * passed / len(cases)
     print(f"KEREN Benchmark V0.1 with adapter: {passed}/{len(cases)} = {pct:.1f}%")
     print(f"Raw results -> {args.output}")
-    print("NOTE: automatic score is lexical + generation-quality guards; manual semantic review remains required.")
+    print("NOTE: score includes lexical and generation-quality guards; manual semantic review remains required.")
     return 0
 
 
