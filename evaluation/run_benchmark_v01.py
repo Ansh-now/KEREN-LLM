@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 """Run the locked KEREN V0.1 unseen benchmark against a local HF causal LM.
 
-This is intentionally a lightweight lexical/contract benchmark. It records raw
-model output so manual review can supplement the automatic score.
+The benchmark keeps its original lexical contracts, but also records generation
+quality guards so prompt echo and obvious repetition cannot silently look good.
+Raw output still requires manual semantic review.
 """
 from __future__ import annotations
 
 import argparse
 import json
 import re
+from collections import Counter
 from pathlib import Path
 
 import torch
@@ -32,17 +34,37 @@ def norm(text: str) -> str:
     return re.sub(r"\s+", " ", text.casefold()).strip()
 
 
+def quality_flags(prompt: str, output: str) -> list[str]:
+    flags: list[str] = []
+    p, o = norm(prompt), norm(output)
+    if not o:
+        return ["empty_output"]
+    if o == p or (len(p) >= 24 and p in o):
+        flags.append("prompt_echo")
+    words = re.findall(r"\w+", o)
+    if len(words) >= 24:
+        ngrams = [tuple(words[i:i + 4]) for i in range(len(words) - 3)]
+        if ngrams:
+            counts = Counter(ngrams)
+            repeated = sum(c - 1 for c in counts.values() if c > 1)
+            if repeated / len(ngrams) >= 0.18:
+                flags.append("repetition_loop")
+    return flags
+
+
 def score_case(case: dict, output: str) -> tuple[bool, dict]:
     text = norm(output)
     required = [norm(x) for x in case.get("must_include_any", [])]
     forbidden = [norm(x) for x in case.get("must_not_include", [])]
     include_ok = True if not required else any(x in text for x in required)
     forbidden_hits = [x for x in forbidden if x and x in text]
-    passed = include_ok and not forbidden_hits
+    flags = quality_flags(case["prompt"], output)
+    passed = include_ok and not forbidden_hits and not flags
     return passed, {
         "include_ok": include_ok,
         "forbidden_hits": forbidden_hits,
         "required_any": case.get("must_include_any", []),
+        "quality_flags": flags,
     }
 
 
@@ -54,8 +76,11 @@ def generate(model, tokenizer, prompt: str, max_new_tokens: int) -> str:
     with torch.inference_mode():
         ids = model.generate(
             **inputs,
-            max_new_tokens=max_new_tokens,
+            max_new_tokens=min(max_new_tokens, 120),
             do_sample=False,
+            repetition_penalty=1.15,
+            no_repeat_ngram_size=4,
+            eos_token_id=tokenizer.eos_token_id,
             pad_token_id=tokenizer.eos_token_id,
         )
     new_ids = ids[0, inputs["input_ids"].shape[1]:]
@@ -67,10 +92,17 @@ def main() -> int:
     p.add_argument("--model", required=True, help="HF model id or local model directory")
     p.add_argument("--benchmark", type=Path, default=DEFAULT_BENCH)
     p.add_argument("--output", type=Path, default=DEFAULT_OUT)
-    p.add_argument("--max-new-tokens", type=int, default=220)
+    p.add_argument("--max-new-tokens", type=int, default=120)
+    p.add_argument("--ids", nargs="*", help="Optional benchmark IDs to run")
     args = p.parse_args()
 
     cases = load_jsonl(args.benchmark)
+    if args.ids:
+        wanted = set(args.ids)
+        cases = [case for case in cases if case["id"] in wanted]
+        missing = wanted - {case["id"] for case in cases}
+        if missing:
+            raise SystemExit(f"Unknown benchmark IDs: {', '.join(sorted(missing))}")
     if not cases:
         raise SystemExit("Benchmark is empty")
     ids = [x["id"] for x in cases]
@@ -86,7 +118,7 @@ def main() -> int:
     model = AutoModelForCausalLM.from_pretrained(
         args.model,
         trust_remote_code=True,
-        torch_dtype=dtype,
+        dtype=dtype,
         device_map="auto" if torch.cuda.is_available() else None,
     )
     model.eval()
@@ -113,7 +145,9 @@ def main() -> int:
                 "output": output,
             }
             dst.write(json.dumps(result, ensure_ascii=False) + "\n")
-            print(f"[{index:02d}/{len(cases)}] {case['id']}: {'PASS' if passed else 'FAIL'}")
+            flags = detail["quality_flags"]
+            suffix = f" [{','.join(flags)}]" if flags else ""
+            print(f"[{index:02d}/{len(cases)}] {case['id']}: {'PASS' if passed else 'FAIL'}{suffix}")
 
     pct = 100.0 * passed_count / len(cases)
     print(f"\nKEREN Benchmark V0.1: {passed_count}/{len(cases)} = {pct:.1f}%")
@@ -121,7 +155,7 @@ def main() -> int:
         got, total = category_stats[cat]
         print(f"  {cat}: {got}/{total}")
     print(f"Raw results -> {args.output}")
-    print("NOTE: automatic score is lexical; inspect raw outputs before making quality claims.")
+    print("NOTE: automatic score is lexical + generation-quality guards; manual semantic review remains required.")
     return 0
 
 
