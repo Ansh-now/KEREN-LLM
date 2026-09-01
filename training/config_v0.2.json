@@ -1,0 +1,22 @@
+{
+  "version": "0.2",
+  "base_model": "Qwen/Qwen3-0.6B-Base",
+  "dataset": "datasets/compiled/keren_train_v0.2.jsonl",
+  "expected_records": 550,
+  "output": "outputs/keren-student-v0.2",
+  "method": "QLoRA",
+  "epochs": 3,
+  "batch_size": 2,
+  "gradient_accumulation_steps": 8,
+  "effective_batch_size_single_gpu": 16,
+  "learning_rate": 0.0002,
+  "max_length": 2048,
+  "save_steps": 25,
+  "logging_steps": 5,
+  "warmup_ratio": 0.05,
+  "seed": 42,
+  "recommended_kaggle_accelerator": "T4",
+  "recommended_launch": "CUDA_VISIBLE_DEVICES=0 bash training/run_v02.sh",
+  "evaluation_benchmark": "evaluation/benchmark_v0.1.jsonl",
+  "notes": "Train a fresh V0.2 adapter from the same frozen base on the full 400 old + 150 targeted Gold mix. Keep V0.1 adapter for rollback and compare both on the same frozen benchmark before deployment."
+}
