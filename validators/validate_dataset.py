@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate KEREN Dataset V0.1 JSONL records.
+"""Validate KEREN Gold JSONL records.
 
 Checks:
 - JSON syntax and schema
@@ -51,7 +51,7 @@ def taxonomy_values(path: Path, key: str) -> set[str]:
 
 def iter_dataset_files(dataset: Path | None, all_gold: bool) -> Iterable[Path]:
     if all_gold:
-        files = sorted(GOLD_DIR.glob("gold_v0.1_*.jsonl"))
+        files = sorted(GOLD_DIR.glob("gold_v*.jsonl"))
         if not files:
             raise SystemExit(f"No Gold JSONL files found in {GOLD_DIR}")
         return files
@@ -195,7 +195,7 @@ def main() -> int:
     p = argparse.ArgumentParser()
     p.add_argument("dataset", nargs="?", type=Path, default=None)
     p.add_argument("--schema", type=Path, default=DEFAULT_SCHEMA)
-    p.add_argument("--all-gold", action="store_true", help="Validate all datasets/gold/gold_v0.1_*.jsonl files together")
+    p.add_argument("--all-gold", action="store_true", help="Validate all datasets/gold/gold_v*.jsonl files together")
     p.add_argument("--schema-only", action="store_true", help="Skip semantic/taxonomy checks")
     args = p.parse_args()
 
