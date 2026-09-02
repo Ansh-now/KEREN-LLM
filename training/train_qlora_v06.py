@@ -83,72 +83,98 @@ def user_content(raw_input: str) -> str:
     return f"{KEREN_POLICY}\n\nTASK:\n{raw_input}"
 
 
-def _ids(value) -> list[int]:
+def _as_list(value) -> list[int]:
     if isinstance(value, torch.Tensor):
         return value.tolist()
     return list(value)
 
 
-def _common_prefix_len(a: list[int], b: list[int]) -> int:
-    n = min(len(a), len(b))
-    i = 0
-    while i < n and a[i] == b[i]:
-        i += 1
-    return i
-
-
 def build_dataset(rows: list[dict], tokenizer, max_length: int) -> Dataset:
     if not getattr(tokenizer, "chat_template", None):
         raise SystemExit("BLOCK_TRAINING: tokenizer has no native chat_template")
+    if not getattr(tokenizer, "is_fast", False):
+        raise SystemExit("BLOCK_TRAINING: V0.6 masking requires a fast tokenizer with offset mapping")
 
     def encode(row: dict) -> dict:
         user = user_content(str(row["input"]))
         answer = render_target(row["target"])
-        prompt_messages = [{"role": "user", "content": user}]
-        empty_assistant_messages = prompt_messages + [{"role": "assistant", "content": ""}]
-        full_messages = prompt_messages + [{"role": "assistant", "content": answer}]
+        if not answer:
+            raise ValueError(f"Empty assistant target for {row['id']}")
 
-        # Do not compare add_generation_prompt=True with a completed conversation:
-        # native templates may render those two states differently. Instead render
-        # an empty assistant turn and the completed assistant turn with the same
-        # template options, then use their longest common token prefix as the
-        # assistant-content boundary. This preserves model-native role markers
-        # while guaranteeing all shared user/policy/header tokens are masked.
-        empty_ids = _ids(tokenizer.apply_chat_template(
-            empty_assistant_messages,
-            tokenize=True,
+        full_messages = [
+            {"role": "user", "content": user},
+            {"role": "assistant", "content": answer},
+        ]
+
+        # Render the exact native chat-template text first. We then locate the
+        # assistant target in character space and map that span back to token
+        # offsets. This avoids unsafe assumptions about whether an empty assistant
+        # turn or add_generation_prompt=True shares an exact token prefix with a
+        # completed conversation (Qwen/Gemma templates are allowed to differ).
+        rendered = tokenizer.apply_chat_template(
+            full_messages,
+            tokenize=False,
             add_generation_prompt=False,
-        ))
-        full_ids = _ids(tokenizer.apply_chat_template(
+        )
+        answer_start = rendered.rfind(answer)
+        if answer_start < 0:
+            raise ValueError(f"Assistant target text not found in rendered chat for {row['id']}")
+        answer_end = answer_start + len(answer)
+
+        encoded = tokenizer(
+            rendered,
+            add_special_tokens=False,
+            return_offsets_mapping=True,
+        )
+        full_ids = _as_list(encoded["input_ids"])
+        offsets = list(encoded["offset_mapping"])
+
+        # Cross-check that rendering-then-tokenizing is exactly the same sequence
+        # the tokenizer's native chat-template API would train on.
+        template_ids = _as_list(tokenizer.apply_chat_template(
             full_messages,
             tokenize=True,
             add_generation_prompt=False,
         ))
-        prompt_len = _common_prefix_len(empty_ids, full_ids)
-
-        if prompt_len == 0:
-            raise ValueError(f"Chat-template boundary mismatch for {row['id']}: no shared prefix")
-        if prompt_len >= len(full_ids):
-            raise ValueError(f"No assistant target boundary found for {row['id']}")
-
-        # Extra safety: a user-only rendering must be entirely contained in the
-        # masked prefix. If not, some prompt/policy token would receive loss.
-        user_only_ids = _ids(tokenizer.apply_chat_template(
-            prompt_messages,
-            tokenize=True,
-            add_generation_prompt=False,
-        ))
-        user_shared = _common_prefix_len(user_only_ids, full_ids)
-        if user_shared < min(len(user_only_ids), prompt_len):
+        if full_ids != template_ids:
             raise ValueError(
-                f"Unsafe chat-template boundary for {row['id']}: user/policy prefix diverges before assistant boundary"
+                f"Native chat-template tokenization mismatch for {row['id']}; refusing unsafe masking"
             )
 
+        answer_token_indexes = [
+            i for i, (start, end) in enumerate(offsets)
+            if end > answer_start and start < answer_end
+        ]
+        if not answer_token_indexes:
+            raise ValueError(f"No assistant target tokens found for {row['id']}")
+
+        first_answer_token = answer_token_indexes[0]
+        last_answer_token = answer_token_indexes[-1]
+
+        # Boundary safety: any token crossing into the assistant answer may only
+        # contain template whitespace before the answer begins. Never allow user
+        # or policy text to share a supervised token.
+        first_start, first_end = offsets[first_answer_token]
+        if first_start < answer_start:
+            prefix_fragment = rendered[first_start:answer_start]
+            if prefix_fragment.strip():
+                raise ValueError(
+                    f"Unsafe assistant boundary for {row['id']}: non-whitespace prompt text shares first target token"
+                )
+
+        # Only assistant-answer tokens are supervised. Template suffix/EOS tokens
+        # remain masked too; this makes the invariant explicit and model-agnostic.
+        labels = [-100] * len(full_ids)
+        for i in range(first_answer_token, last_answer_token + 1):
+            labels[i] = full_ids[i]
+
         input_ids = full_ids[:max_length]
-        masked_len = min(prompt_len, len(input_ids))
-        labels = [-100] * masked_len + input_ids[masked_len:]
+        labels = labels[:max_length]
         if not any(x != -100 for x in labels):
-            raise ValueError(f"No supervised assistant tokens remain for {row['id']}")
+            raise ValueError(f"No supervised assistant tokens remain after truncation for {row['id']}")
+        if any(x != -100 for x in labels[: min(first_answer_token, len(labels))]):
+            raise ValueError(f"Prompt masking invariant failed for {row['id']}")
+
         return {
             "input_ids": input_ids,
             "attention_mask": [1] * len(input_ids),
@@ -180,7 +206,7 @@ def main() -> int:
     print(f"Base model: {args.model}")
     print(f"Token lengths: min={min(lengths)} max={max(lengths)} avg={sum(lengths)/len(lengths):.1f}")
     print(f"Supervised answer tokens: min={min(supervised)} max={max(supervised)} avg={sum(supervised)/len(supervised):.1f}")
-    print("FORMAT CHECK PASS: native chat template + assistant-only loss")
+    print("FORMAT CHECK PASS: native chat template + offset-mapped assistant-only loss")
 
     if args.validate_only:
         print("VALIDATION ONLY PASS: no model weights loaded and no training started")
@@ -251,7 +277,7 @@ def main() -> int:
     tokenizer.save_pretrained(str(args.output))
 
     manifest = {
-        "format_version": "v0.6-native-chat-template",
+        "format_version": "v0.6-native-chat-template-offset-mask",
         "base_model": args.model,
         "dataset": str(args.dataset),
         "records": len(rows),
@@ -263,6 +289,7 @@ def main() -> int:
         "seed": args.seed,
         "female_persona_policy": True,
         "pseudo_keren_markers": False,
+        "assistant_only_offset_masking": True,
     }
     with (args.output / "keren_training_manifest.json").open("w", encoding="utf-8") as f:
         json.dump(manifest, f, ensure_ascii=False, indent=2)
