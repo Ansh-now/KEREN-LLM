@@ -54,8 +54,6 @@ def render_target(target: object) -> str:
 
 
 def user_content(raw_input: str) -> str:
-    # Fold policy into the user turn for cross-model compatibility. Some small
-    # model templates do not support an independent system role consistently.
     return f"{KEREN_POLICY}\n\nTASK:\n{raw_input}"
 
 
@@ -86,24 +84,13 @@ def load_rows(path: Path) -> list[dict]:
 
 
 def build_prompt_completion_dataset(rows: list[dict]) -> Dataset:
-    """Create TRL conversational prompt/completion records.
-
-    TRL recognizes this schema and, with completion_only_loss=True, masks the
-    prompt internally. This avoids brittle token-boundary reconstruction.
-    """
     records: list[dict] = []
     for row in rows:
-        records.append(
-            {
-                "id": str(row["id"]),
-                "prompt": [
-                    {"role": "user", "content": user_content(str(row["input"]))},
-                ],
-                "completion": [
-                    {"role": "assistant", "content": render_target(row["target"])},
-                ],
-            }
-        )
+        records.append({
+            "id": str(row["id"]),
+            "prompt": [{"role": "user", "content": user_content(str(row["input"]))}],
+            "completion": [{"role": "assistant", "content": render_target(row["target"])}],
+        })
     return Dataset.from_list(records)
 
 
@@ -118,22 +105,28 @@ def validate_template(rows: list[dict], tokenizer, max_length: int) -> None:
             {"role": "user", "content": user_content(str(row["input"]))},
             {"role": "assistant", "content": render_target(row["target"])},
         ]
-        ids = tokenizer.apply_chat_template(
+        rendered = tokenizer.apply_chat_template(
             messages,
-            tokenize=True,
+            tokenize=False,
             add_generation_prompt=False,
         )
+        if not isinstance(rendered, str) or not rendered.strip():
+            raise ValueError(f"Native chat template rendered empty/non-text output for {row['id']}")
+        ids = tokenizer(rendered, add_special_tokens=False)["input_ids"]
+        if ids and isinstance(ids[0], list):
+            if len(ids) != 1:
+                raise ValueError(f"Unexpected batched tokenization for {row['id']}")
+            ids = ids[0]
         n = len(ids)
+        if n <= 2:
+            raise ValueError(f"Suspicious native-template token length={n} for {row['id']}")
         lengths.append(n)
         if n > max_length:
             over_limit += 1
 
     print(f"Loaded rows: {len(rows)}")
     print(f"Base model: {tokenizer.name_or_path}")
-    print(
-        f"Native-template token lengths: min={min(lengths)} max={max(lengths)} "
-        f"avg={sum(lengths)/len(lengths):.1f}"
-    )
+    print(f"Native-template token lengths: min={min(lengths)} max={max(lengths)} avg={sum(lengths)/len(lengths):.1f}")
     print(f"Rows above max_length={max_length}: {over_limit}")
     print("FORMAT CHECK PASS: conversational prompt/completion + native chat template")
     print("LOSS POLICY: TRL completion_only_loss=True; no manual token-boundary masking")
@@ -160,14 +153,11 @@ def main() -> int:
     if not torch.cuda.is_available():
         raise SystemExit("CUDA GPU required for QLoRA training")
 
-    # Import training-only dependencies lazily so CPU validation stays lightweight.
     try:
         from peft import LoraConfig
         from trl import SFTConfig, SFTTrainer
     except ImportError as exc:
-        raise SystemExit(
-            "Missing training dependency. Install with: pip install -U trl peft bitsandbytes accelerate"
-        ) from exc
+        raise SystemExit("Missing training dependency. Install with: pip install -U trl peft bitsandbytes accelerate") from exc
 
     torch.cuda.manual_seed_all(args.seed)
     compute_dtype = torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16
@@ -177,7 +167,6 @@ def main() -> int:
         bnb_4bit_use_double_quant=True,
         bnb_4bit_compute_dtype=compute_dtype,
     )
-
     peft_config = LoraConfig(
         r=16,
         lora_alpha=32,
@@ -186,7 +175,6 @@ def main() -> int:
         task_type="CAUSAL_LM",
         target_modules=["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"],
     )
-
     args.output.mkdir(parents=True, exist_ok=True)
     sft_args = SFTConfig(
         output_dir=str(args.output),
@@ -211,13 +199,8 @@ def main() -> int:
         max_length=args.max_length,
         completion_only_loss=True,
         packing=False,
-        model_init_kwargs={
-            "quantization_config": quant,
-            "device_map": "auto",
-            "trust_remote_code": True,
-        },
+        model_init_kwargs={"quantization_config": quant, "device_map": "auto", "trust_remote_code": True},
     )
-
     trainer = SFTTrainer(
         model=args.model,
         args=sft_args,
@@ -242,8 +225,7 @@ def main() -> int:
         "seed": args.seed,
         "female_persona_policy": True,
         "pseudo_keren_markers": False,
-        "manual_boundary_masking": False,
-        "trl_completion_only_loss": True,
+        "completion_only_loss": True,
     }
     with (args.output / "keren_training_manifest.json").open("w", encoding="utf-8") as f:
         json.dump(manifest, f, ensure_ascii=False, indent=2)
