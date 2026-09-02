@@ -83,6 +83,20 @@ def user_content(raw_input: str) -> str:
     return f"{KEREN_POLICY}\n\nTASK:\n{raw_input}"
 
 
+def _ids(value) -> list[int]:
+    if isinstance(value, torch.Tensor):
+        return value.tolist()
+    return list(value)
+
+
+def _common_prefix_len(a: list[int], b: list[int]) -> int:
+    n = min(len(a), len(b))
+    i = 0
+    while i < n and a[i] == b[i]:
+        i += 1
+    return i
+
+
 def build_dataset(rows: list[dict], tokenizer, max_length: int) -> Dataset:
     if not getattr(tokenizer, "chat_template", None):
         raise SystemExit("BLOCK_TRAINING: tokenizer has no native chat_template")
@@ -91,31 +105,48 @@ def build_dataset(rows: list[dict], tokenizer, max_length: int) -> Dataset:
         user = user_content(str(row["input"]))
         answer = render_target(row["target"])
         prompt_messages = [{"role": "user", "content": user}]
+        empty_assistant_messages = prompt_messages + [{"role": "assistant", "content": ""}]
         full_messages = prompt_messages + [{"role": "assistant", "content": answer}]
 
-        prompt_ids = tokenizer.apply_chat_template(
-            prompt_messages,
+        # Do not compare add_generation_prompt=True with a completed conversation:
+        # native templates may render those two states differently. Instead render
+        # an empty assistant turn and the completed assistant turn with the same
+        # template options, then use their longest common token prefix as the
+        # assistant-content boundary. This preserves model-native role markers
+        # while guaranteeing all shared user/policy/header tokens are masked.
+        empty_ids = _ids(tokenizer.apply_chat_template(
+            empty_assistant_messages,
             tokenize=True,
-            add_generation_prompt=True,
-        )
-        full_ids = tokenizer.apply_chat_template(
+            add_generation_prompt=False,
+        ))
+        full_ids = _ids(tokenizer.apply_chat_template(
             full_messages,
             tokenize=True,
             add_generation_prompt=False,
-        )
-        if isinstance(prompt_ids, torch.Tensor):
-            prompt_ids = prompt_ids.tolist()
-        if isinstance(full_ids, torch.Tensor):
-            full_ids = full_ids.tolist()
-        if full_ids[: len(prompt_ids)] != prompt_ids:
+        ))
+        prompt_len = _common_prefix_len(empty_ids, full_ids)
+
+        if prompt_len == 0:
+            raise ValueError(f"Chat-template boundary mismatch for {row['id']}: no shared prefix")
+        if prompt_len >= len(full_ids):
+            raise ValueError(f"No assistant target boundary found for {row['id']}")
+
+        # Extra safety: a user-only rendering must be entirely contained in the
+        # masked prefix. If not, some prompt/policy token would receive loss.
+        user_only_ids = _ids(tokenizer.apply_chat_template(
+            prompt_messages,
+            tokenize=True,
+            add_generation_prompt=False,
+        ))
+        user_shared = _common_prefix_len(user_only_ids, full_ids)
+        if user_shared < min(len(user_only_ids), prompt_len):
             raise ValueError(
-                f"Chat-template boundary mismatch for {row['id']}: "
-                "prompt is not an exact prefix of full conversation"
+                f"Unsafe chat-template boundary for {row['id']}: user/policy prefix diverges before assistant boundary"
             )
 
         input_ids = full_ids[:max_length]
-        prompt_len = min(len(prompt_ids), len(input_ids))
-        labels = [-100] * prompt_len + input_ids[prompt_len:]
+        masked_len = min(prompt_len, len(input_ids))
+        labels = [-100] * masked_len + input_ids[masked_len:]
         if not any(x != -100 for x in labels):
             raise ValueError(f"No supervised assistant tokens remain for {row['id']}")
         return {
