@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
-"""Run the frozen KEREN V0.6 holdout against an unadapted base/instruct model.
+"""Run the frozen KEREN V0.6 holdout against an unadapted model.
 
-This is intentionally adapter-free. It is used to compare foundations before
-spending GPU time on another fine-tune.
+Adapter-free comparison only. Uses each tokenizer's native chat template and the
+same shared KEREN policy for every candidate.
 """
 from __future__ import annotations
 
 import argparse
 import json
 import re
+import sys
 import time
 from collections import Counter
 from pathlib import Path
@@ -17,15 +18,10 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_BENCH = ROOT / "evaluation" / "benchmark_v0.6_holdout.jsonl"
+sys.path.insert(0, str(ROOT))
+from training.keren_policy import KEREN_POLICY
 
-SYSTEM_PROMPT = (
-    "You are KEREN, a female AI execution and reasoning system. "
-    "Be concise, technically precise, and do not invent observations, device state, permissions, or current data. "
-    "In Hindi/Hinglish self-reference, use feminine forms naturally. "
-    "A command ACK is not proof of physical or UI completion. "
-    "Consequential actions require permission or explicit preauthorization."
-)
+DEFAULT_BENCH = ROOT / "evaluation" / "benchmark_v0.6_holdout.jsonl"
 
 
 def load_jsonl(path: Path) -> list[dict]:
@@ -41,9 +37,10 @@ def norm(text: str) -> str:
     return re.sub(r"\s+", " ", text.casefold()).strip()
 
 
-def quality_flags(output: str) -> list[str]:
+def quality_flags(prompt: str, output: str) -> list[str]:
     flags: list[str] = []
     o = norm(output)
+    p = norm(prompt)
     if not o:
         return ["empty"]
     if "<|" in output or "|>" in output:
@@ -53,6 +50,10 @@ def quality_flags(output: str) -> list[str]:
     labels = sum(bool(re.search(rf"(?m)^\s*{x}[\).:]", output, re.I)) for x in "ABCD")
     if labels >= 2:
         flags.append("fabricated_mcq")
+    if "code only" in p or "sirf expression" in p or "sirf function" in p:
+        non_code = re.sub(r"```[\s\S]*?```", "", output).strip()
+        if "```" in output and len(non_code.split()) > 3:
+            flags.append("extra_text_after_code")
     words = re.findall(r"\w+", o)
     if len(words) >= 28:
         grams = [tuple(words[i:i+4]) for i in range(len(words)-3)]
@@ -70,12 +71,11 @@ def score(case: dict, output: str) -> tuple[bool, dict]:
     all_ok = all(x in text for x in required_all)
     any_ok = not required_any or any(x in text for x in required_any)
     forbidden_hits = [x for x in forbidden if x and x in text]
-    flags = quality_flags(output)
+    flags = quality_flags(case["prompt"], output)
 
-    persona = case.get("persona")
     persona_ok = True
-    if persona == "female_hinglish":
-        masculine = ["kar raha hoon", "karunga", "samajh gaya", "dekh raha hoon"]
+    if case.get("persona") == "female_hinglish":
+        masculine = ["kar raha hoon", "karunga", "samajh gaya", "dekh raha hoon", "bataunga"]
         persona_ok = not any(x in text for x in masculine)
 
     passed = all_ok and any_ok and not forbidden_hits and not flags and persona_ok
@@ -89,13 +89,14 @@ def score(case: dict, output: str) -> tuple[bool, dict]:
 
 
 def format_prompt(tokenizer, user_prompt: str) -> str:
-    messages = [
-        {"role": "system", "content": SYSTEM_PROMPT},
-        {"role": "user", "content": user_prompt},
-    ]
+    # Fold policy into the user turn so models whose templates reject a system
+    # role (including some lightweight instruction models) are still compared
+    # with identical semantic context.
+    content = f"{KEREN_POLICY}\n\nTASK:\n{user_prompt}"
+    messages = [{"role": "user", "content": content}]
     if getattr(tokenizer, "chat_template", None):
         return tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
-    return f"System: {SYSTEM_PROMPT}\nUser: {user_prompt}\nAssistant:"
+    return f"{content}\n\nANSWER:"
 
 
 def main() -> int:
@@ -108,6 +109,9 @@ def main() -> int:
     args = p.parse_args()
 
     cases = load_jsonl(args.benchmark)
+    ids = [c["id"] for c in cases]
+    if len(ids) != len(set(ids)):
+        raise SystemExit("Benchmark has duplicate IDs")
     if args.ids:
         wanted = set(args.ids)
         cases = [c for c in cases if c["id"] in wanted]
@@ -137,6 +141,7 @@ def main() -> int:
     passed = 0
     total_tokens = 0
     total_seconds = 0.0
+    category_stats: dict[str, list[int]] = {}
 
     with args.output.open("w", encoding="utf-8") as dst:
         for i, case in enumerate(cases, 1):
@@ -146,7 +151,7 @@ def main() -> int:
             inputs = {k: v.to(device) for k, v in inputs.items()}
             t0 = time.perf_counter()
             with torch.inference_mode():
-                ids = model.generate(
+                ids_out = model.generate(
                     **inputs,
                     max_new_tokens=args.max_new_tokens,
                     do_sample=False,
@@ -155,16 +160,20 @@ def main() -> int:
                     pad_token_id=tokenizer.pad_token_id,
                 )
             elapsed = time.perf_counter() - t0
-            new_ids = ids[0, inputs["input_ids"].shape[1]:]
+            new_ids = ids_out[0, inputs["input_ids"].shape[1]:]
             output = tokenizer.decode(new_ids, skip_special_tokens=True).strip()
             n_new = int(new_ids.numel())
             total_tokens += n_new
             total_seconds += elapsed
             ok, detail = score(case, output)
             passed += int(ok)
+            cat = case.get("category", "unknown")
+            category_stats.setdefault(cat, [0, 0])
+            category_stats[cat][0] += int(ok)
+            category_stats[cat][1] += 1
             row = {
                 "id": case["id"],
-                "category": case.get("category"),
+                "category": cat,
                 "passed": ok,
                 "score_detail": detail,
                 "latency_seconds": round(elapsed, 4),
@@ -181,8 +190,12 @@ def main() -> int:
     print(f"MODEL: {args.model}")
     print(f"SCORE: {passed}/{len(cases)} = {pct:.1f}%")
     print(f"GENERATION: {total_tokens} tokens / {total_seconds:.2f}s = {speed:.2f} tok/s")
+    print("CATEGORY SCORES:")
+    for cat in sorted(category_stats):
+        pcat, tcat = category_stats[cat]
+        print(f"  {cat}: {pcat}/{tcat} = {100.0*pcat/tcat:.1f}%")
     print(f"RAW: {args.output}")
-    print("Manual semantic review is still required before selecting a base model.")
+    print("Manual semantic review is required before selecting a base model.")
     return 0
 
 
