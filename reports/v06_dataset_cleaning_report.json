@@ -1,0 +1,3261 @@
+{
+  "dataset": "datasets/compiled/keren_train_v0.5.jsonl",
+  "records": 1060,
+  "near_duplicate_threshold": 0.82,
+  "near_duplicate_pairs": 218,
+  "generation_counts": {
+    "v0.1-v0.2": 550,
+    "v0.3": 120,
+    "v0.4": 150,
+    "v0.5": 240
+  },
+  "flagged_generation_counts": {
+    "v0.1-v0.2": 186,
+    "v0.3": 39,
+    "v0.4": 55,
+    "v0.5": 168
+  },
+  "flagged_records": 448,
+  "flags": {
+    "gold_0014": [
+      "masculine_persona:kar raha hoon"
+    ],
+    "gold_0026": [
+      "masculine_persona:kar raha hoon"
+    ],
+    "gold_0028": [
+      "masculine_persona:kar raha hoon"
+    ],
+    "gold_0030": [
+      "masculine_persona:karunga"
+    ],
+    "gold_0039": [
+      "masculine_persona:karunga"
+    ],
+    "gold_0040": [
+      "masculine_persona:karunga"
+    ],
+    "gold_0047": [
+      "masculine_persona:karunga"
+    ],
+    "gold_0052": [
+      "masculine_persona:karunga"
+    ],
+    "gold_0053": [
+      "masculine_persona:karunga"
+    ],
+    "gold_0054": [
+      "masculine_persona:kar raha hoon"
+    ],
+    "gold_0055": [
+      "masculine_persona:kar raha hoon"
+    ],
+    "gold_0056": [
+      "masculine_persona:kar raha hoon"
+    ],
+    "gold_0060": [
+      "masculine_persona:karunga"
+    ],
+    "gold_0062": [
+      "masculine_persona:karunga"
+    ],
+    "gold_0068": [
+      "masculine_persona:kar raha hoon"
+    ],
+    "gold_0083": [
+      "masculine_persona:karunga"
+    ],
+    "gold_0096": [
+      "masculine_persona:karunga"
+    ],
+    "gold_0106": [
+      "masculine_persona:karunga"
+    ],
+    "gold_0110": [
+      "masculine_persona:karunga"
+    ],
+    "gold_0134": [
+      "masculine_persona:karunga"
+    ],
+    "gold_0139": [
+      "masculine_persona:karunga"
+    ],
+    "gold_0143": [
+      "masculine_persona:karunga"
+    ],
+    "gold_0144": [
+      "masculine_persona:karunga"
+    ],
+    "gold_0149": [
+      "masculine_persona:karunga"
+    ],
+    "0151": [
+      "masculine_persona:karunga"
+    ],
+    "0152": [
+      "masculine_persona:karunga"
+    ],
+    "0154": [
+      "masculine_persona:karunga"
+    ],
+    "0155": [
+      "masculine_persona:karunga"
+    ],
+    "0156": [
+      "masculine_persona:karunga"
+    ],
+    "0157": [
+      "masculine_persona:karunga"
+    ],
+    "0158": [
+      "masculine_persona:karunga"
+    ],
+    "0159": [
+      "masculine_persona:karunga"
+    ],
+    "0160": [
+      "masculine_persona:karunga"
+    ],
+    "0161": [
+      "masculine_persona:karunga"
+    ],
+    "0162": [
+      "masculine_persona:karunga"
+    ],
+    "0163": [
+      "masculine_persona:karunga"
+    ],
+    "0164": [
+      "masculine_persona:karunga"
+    ],
+    "0165": [
+      "masculine_persona:karunga"
+    ],
+    "0166": [
+      "masculine_persona:karunga"
+    ],
+    "0167": [
+      "masculine_persona:karunga"
+    ],
+    "0168": [
+      "masculine_persona:karunga"
+    ],
+    "0169": [
+      "masculine_persona:karunga"
+    ],
+    "0170": [
+      "masculine_persona:karunga"
+    ],
+    "0171": [
+      "masculine_persona:karunga"
+    ],
+    "0173": [
+      "masculine_persona:karunga"
+    ],
+    "0174": [
+      "masculine_persona:karunga"
+    ],
+    "0175": [
+      "masculine_persona:karunga"
+    ],
+    "0176": [
+      "masculine_persona:karunga"
+    ],
+    "0177": [
+      "masculine_persona:karunga"
+    ],
+    "0178": [
+      "masculine_persona:karunga"
+    ],
+    "0179": [
+      "masculine_persona:karunga"
+    ],
+    "0180": [
+      "masculine_persona:karunga"
+    ],
+    "0183": [
+      "masculine_persona:karunga"
+    ],
+    "0185": [
+      "masculine_persona:karunga"
+    ],
+    "0186": [
+      "masculine_persona:karunga"
+    ],
+    "0187": [
+      "masculine_persona:karunga"
+    ],
+    "0188": [
+      "masculine_persona:karunga"
+    ],
+    "0189": [
+      "masculine_persona:karunga"
+    ],
+    "0191": [
+      "masculine_persona:karunga"
+    ],
+    "0192": [
+      "masculine_persona:karunga"
+    ],
+    "0194": [
+      "masculine_persona:karunga"
+    ],
+    "0195": [
+      "masculine_persona:karunga"
+    ],
+    "0196": [
+      "masculine_persona:karunga"
+    ],
+    "0197": [
+      "masculine_persona:karunga"
+    ],
+    "0200": [
+      "masculine_persona:karunga"
+    ],
+    "0201": [
+      "masculine_persona:karunga"
+    ],
+    "0203": [
+      "masculine_persona:karunga"
+    ],
+    "0204": [
+      "masculine_persona:karunga"
+    ],
+    "0205": [
+      "masculine_persona:karunga"
+    ],
+    "0207": [
+      "masculine_persona:karunga"
+    ],
+    "0208": [
+      "masculine_persona:karunga"
+    ],
+    "0209": [
+      "masculine_persona:karunga"
+    ],
+    "0210": [
+      "masculine_persona:karunga"
+    ],
+    "0211": [
+      "masculine_persona:karunga"
+    ],
+    "0213": [
+      "masculine_persona:karunga"
+    ],
+    "0214": [
+      "masculine_persona:karunga"
+    ],
+    "0215": [
+      "masculine_persona:karunga"
+    ],
+    "0217": [
+      "masculine_persona:karunga"
+    ],
+    "0218": [
+      "masculine_persona:karunga"
+    ],
+    "0219": [
+      "masculine_persona:karunga"
+    ],
+    "0220": [
+      "masculine_persona:karunga"
+    ],
+    "0221": [
+      "masculine_persona:karunga"
+    ],
+    "0223": [
+      "masculine_persona:karunga"
+    ],
+    "0224": [
+      "masculine_persona:karunga"
+    ],
+    "0225": [
+      "masculine_persona:karunga"
+    ],
+    "0227": [
+      "masculine_persona:karunga"
+    ],
+    "0228": [
+      "masculine_persona:karunga"
+    ],
+    "0229": [
+      "masculine_persona:karunga"
+    ],
+    "0230": [
+      "masculine_persona:karunga"
+    ],
+    "0232": [
+      "masculine_persona:karunga"
+    ],
+    "0235": [
+      "masculine_persona:karunga"
+    ],
+    "0236": [
+      "masculine_persona:karunga"
+    ],
+    "0237": [
+      "masculine_persona:karunga"
+    ],
+    "0238": [
+      "masculine_persona:karunga"
+    ],
+    "0239": [
+      "masculine_persona:karunga"
+    ],
+    "0240": [
+      "masculine_persona:karunga"
+    ],
+    "0241": [
+      "masculine_persona:karunga"
+    ],
+    "0242": [
+      "masculine_persona:karunga"
+    ],
+    "0244": [
+      "masculine_persona:karunga"
+    ],
+    "0245": [
+      "masculine_persona:karunga"
+    ],
+    "0247": [
+      "masculine_persona:karunga"
+    ],
+    "0248": [
+      "masculine_persona:karunga"
+    ],
+    "0249": [
+      "masculine_persona:karunga"
+    ],
+    "0250": [
+      "masculine_persona:karunga"
+    ],
+    "0251": [
+      "masculine_persona:karunga"
+    ],
+    "0252": [
+      "masculine_persona:karunga"
+    ],
+    "0254": [
+      "masculine_persona:karunga"
+    ],
+    "0256": [
+      "masculine_persona:karunga"
+    ],
+    "0258": [
+      "masculine_persona:karunga"
+    ],
+    "0259": [
+      "masculine_persona:karunga"
+    ],
+    "0260": [
+      "masculine_persona:karunga"
+    ],
+    "0261": [
+      "masculine_persona:karunga"
+    ],
+    "0262": [
+      "masculine_persona:karunga"
+    ],
+    "0263": [
+      "masculine_persona:karunga"
+    ],
+    "0265": [
+      "masculine_persona:karunga"
+    ],
+    "0268": [
+      "masculine_persona:karunga"
+    ],
+    "0269": [
+      "masculine_persona:karunga"
+    ],
+    "0275": [
+      "masculine_persona:karunga"
+    ],
+    "0277": [
+      "masculine_persona:karunga"
+    ],
+    "0278": [
+      "masculine_persona:karunga"
+    ],
+    "0283": [
+      "masculine_persona:karunga"
+    ],
+    "0284": [
+      "masculine_persona:karunga"
+    ],
+    "0285": [
+      "masculine_persona:karunga"
+    ],
+    "0287": [
+      "masculine_persona:karunga"
+    ],
+    "0288": [
+      "masculine_persona:karunga"
+    ],
+    "0290": [
+      "masculine_persona:karunga"
+    ],
+    "0296": [
+      "masculine_persona:karunga"
+    ],
+    "0297": [
+      "masculine_persona:karunga"
+    ],
+    "0298": [
+      "masculine_persona:karunga"
+    ],
+    "0299": [
+      "masculine_persona:karunga"
+    ],
+    "0302": [
+      "masculine_persona:karunga"
+    ],
+    "0303": [
+      "masculine_persona:karunga"
+    ],
+    "0304": [
+      "masculine_persona:karunga"
+    ],
+    "0305": [
+      "masculine_persona:karunga"
+    ],
+    "0306": [
+      "masculine_persona:karunga"
+    ],
+    "0309": [
+      "masculine_persona:karunga"
+    ],
+    "0310": [
+      "masculine_persona:karunga"
+    ],
+    "0316": [
+      "masculine_persona:karunga"
+    ],
+    "0317": [
+      "masculine_persona:karunga"
+    ],
+    "0318": [
+      "masculine_persona:karunga"
+    ],
+    "0319": [
+      "masculine_persona:karunga"
+    ],
+    "0322": [
+      "masculine_persona:karunga"
+    ],
+    "0323": [
+      "masculine_persona:karunga"
+    ],
+    "0324": [
+      "masculine_persona:karunga"
+    ],
+    "0325": [
+      "masculine_persona:karunga"
+    ],
+    "0327": [
+      "masculine_persona:karunga"
+    ],
+    "0328": [
+      "masculine_persona:karunga"
+    ],
+    "0329": [
+      "masculine_persona:karunga"
+    ],
+    "0330": [
+      "masculine_persona:karunga"
+    ],
+    "0336": [
+      "masculine_persona:karunga"
+    ],
+    "0337": [
+      "masculine_persona:karunga"
+    ],
+    "0338": [
+      "masculine_persona:karunga"
+    ],
+    "0339": [
+      "masculine_persona:karunga"
+    ],
+    "0342": [
+      "masculine_persona:karunga"
+    ],
+    "0343": [
+      "masculine_persona:karunga"
+    ],
+    "0344": [
+      "masculine_persona:karunga"
+    ],
+    "0346": [
+      "masculine_persona:karunga"
+    ],
+    "0348": [
+      "masculine_persona:karunga"
+    ],
+    "0349": [
+      "masculine_persona:karunga"
+    ],
+    "0350": [
+      "masculine_persona:karunga"
+    ],
+    "0361": [
+      "masculine_persona:karunga"
+    ],
+    "0362": [
+      "masculine_persona:karunga"
+    ],
+    "0363": [
+      "masculine_persona:karunga"
+    ],
+    "0364": [
+      "masculine_persona:karunga"
+    ],
+    "0365": [
+      "masculine_persona:karunga"
+    ],
+    "0366": [
+      "masculine_persona:karunga"
+    ],
+    "0367": [
+      "masculine_persona:karunga"
+    ],
+    "0368": [
+      "masculine_persona:karunga"
+    ],
+    "0369": [
+      "masculine_persona:karunga"
+    ],
+    "0370": [
+      "masculine_persona:karunga"
+    ],
+    "0376": [
+      "masculine_persona:karunga"
+    ],
+    "0377": [
+      "masculine_persona:karunga"
+    ],
+    "0378": [
+      "masculine_persona:karunga"
+    ],
+    "0379": [
+      "masculine_persona:karunga"
+    ],
+    "0380": [
+      "masculine_persona:karunga"
+    ],
+    "0384": [
+      "masculine_persona:karunga"
+    ],
+    "0385": [
+      "masculine_persona:karunga"
+    ],
+    "0386": [
+      "masculine_persona:karunga"
+    ],
+    "0387": [
+      "masculine_persona:karunga"
+    ],
+    "0390": [
+      "masculine_persona:karunga"
+    ],
+    "0395": [
+      "masculine_persona:karunga"
+    ],
+    "0397": [
+      "masculine_persona:karunga"
+    ],
+    "0399": [
+      "masculine_persona:karunga"
+    ],
+    "gold_0006": [
+      "masculine_persona:kar raha hoon"
+    ],
+    "gold_0485": [
+      "masculine_persona:karunga"
+    ],
+    "gold_0545": [
+      "masculine_persona:karunga"
+    ],
+    "gold_0701": [
+      "masculine_persona:karunga",
+      "near_duplicate:gold_0705:0.842"
+    ],
+    "gold_0702": [
+      "masculine_persona:karunga"
+    ],
+    "gold_0703": [
+      "masculine_persona:karunga"
+    ],
+    "gold_0704": [
+      "masculine_persona:karunga"
+    ],
+    "gold_0705": [
+      "masculine_persona:karunga",
+      "near_duplicate:gold_0701:0.842"
+    ],
+    "gold_0893": [
+      "masculine_persona:karunga",
+      "near_duplicate:gold_0894:0.853",
+      "near_duplicate:gold_0895:0.829",
+      "near_duplicate:gold_0897:0.829",
+      "near_duplicate:gold_0898:0.853",
+      "near_duplicate:gold_0899:0.829",
+      "near_duplicate:gold_0900:0.853"
+    ],
+    "gold_0894": [
+      "masculine_persona:karunga",
+      "near_duplicate:gold_0893:0.853"
+    ],
+    "gold_0895": [
+      "masculine_persona:karunga",
+      "near_duplicate:gold_0893:0.829"
+    ],
+    "gold_0896": [
+      "masculine_persona:karunga"
+    ],
+    "gold_0897": [
+      "masculine_persona:karunga",
+      "near_duplicate:gold_0893:0.829"
+    ],
+    "gold_0898": [
+      "masculine_persona:karunga",
+      "near_duplicate:gold_0893:0.853"
+    ],
+    "gold_0899": [
+      "masculine_persona:karunga",
+      "near_duplicate:gold_0893:0.829"
+    ],
+    "gold_0900": [
+      "masculine_persona:karunga",
+      "near_duplicate:gold_0893:0.853"
+    ],
+    "gold_0563": [
+      "near_duplicate:gold_0564:0.857"
+    ],
+    "gold_0564": [
+      "near_duplicate:gold_0563:0.857"
+    ],
+    "gold_0567": [
+      "near_duplicate:gold_0568:0.864",
+      "near_duplicate:gold_0569:0.826"
+    ],
+    "gold_0568": [
+      "near_duplicate:gold_0567:0.864"
+    ],
+    "gold_0569": [
+      "near_duplicate:gold_0567:0.826"
+    ],
+    "gold_0571": [
+      "near_duplicate:gold_0572:0.857"
+    ],
+    "gold_0572": [
+      "near_duplicate:gold_0571:0.857"
+    ],
+    "gold_0575": [
+      "near_duplicate:gold_0576:0.880",
+      "near_duplicate:gold_0577:0.846"
+    ],
+    "gold_0576": [
+      "near_duplicate:gold_0575:0.880"
+    ],
+    "gold_0577": [
+      "near_duplicate:gold_0575:0.846"
+    ],
+    "gold_0579": [
+      "near_duplicate:gold_0580:0.850"
+    ],
+    "gold_0580": [
+      "near_duplicate:gold_0579:0.850"
+    ],
+    "gold_0583": [
+      "near_duplicate:gold_0584:0.833"
+    ],
+    "gold_0584": [
+      "near_duplicate:gold_0583:0.833"
+    ],
+    "gold_0587": [
+      "near_duplicate:gold_0726:0.857"
+    ],
+    "gold_0726": [
+      "near_duplicate:gold_0587:0.857"
+    ],
+    "gold_0588": [
+      "near_duplicate:gold_0730:0.867"
+    ],
+    "gold_0730": [
+      "near_duplicate:gold_0588:0.867"
+    ],
+    "gold_0595": [
+      "near_duplicate:gold_0596:0.857"
+    ],
+    "gold_0596": [
+      "near_duplicate:gold_0595:0.857"
+    ],
+    "gold_0599": [
+      "near_duplicate:gold_0600:0.833"
+    ],
+    "gold_0600": [
+      "near_duplicate:gold_0599:0.833"
+    ],
+    "gold_0603": [
+      "near_duplicate:gold_0604:0.842"
+    ],
+    "gold_0604": [
+      "near_duplicate:gold_0603:0.842"
+    ],
+    "gold_0607": [
+      "near_duplicate:gold_0608:0.857"
+    ],
+    "gold_0608": [
+      "near_duplicate:gold_0607:0.857"
+    ],
+    "gold_0611": [
+      "near_duplicate:gold_0612:0.833"
+    ],
+    "gold_0612": [
+      "near_duplicate:gold_0611:0.833"
+    ],
+    "gold_0615": [
+      "near_duplicate:gold_0616:0.857"
+    ],
+    "gold_0616": [
+      "near_duplicate:gold_0615:0.857"
+    ],
+    "gold_0623": [
+      "near_duplicate:gold_0624:0.850"
+    ],
+    "gold_0624": [
+      "near_duplicate:gold_0623:0.850"
+    ],
+    "gold_0627": [
+      "near_duplicate:gold_0628:0.850",
+      "near_duplicate:gold_0731:0.895"
+    ],
+    "gold_0628": [
+      "near_duplicate:gold_0627:0.850",
+      "near_duplicate:gold_0735:0.900"
+    ],
+    "gold_0731": [
+      "near_duplicate:gold_0627:0.895",
+      "near_duplicate:gold_0735:0.850"
+    ],
+    "gold_0735": [
+      "near_duplicate:gold_0628:0.900",
+      "near_duplicate:gold_0731:0.850"
+    ],
+    "gold_0631": [
+      "near_duplicate:gold_0771:0.895"
+    ],
+    "gold_0771": [
+      "near_duplicate:gold_0631:0.895"
+    ],
+    "gold_0646": [
+      "near_duplicate:gold_0648:0.826",
+      "near_duplicate:gold_0649:0.826"
+    ],
+    "gold_0648": [
+      "near_duplicate:gold_0646:0.826"
+    ],
+    "gold_0649": [
+      "near_duplicate:gold_0646:0.826"
+    ],
+    "gold_0656": [
+      "near_duplicate:gold_0658:0.826",
+      "near_duplicate:gold_0659:0.826"
+    ],
+    "gold_0658": [
+      "near_duplicate:gold_0656:0.826"
+    ],
+    "gold_0659": [
+      "near_duplicate:gold_0656:0.826"
+    ],
+    "gold_0671": [
+      "near_duplicate:gold_0675:0.842"
+    ],
+    "gold_0675": [
+      "near_duplicate:gold_0671:0.842"
+    ],
+    "gold_0676": [
+      "near_duplicate:gold_0680:0.842"
+    ],
+    "gold_0680": [
+      "near_duplicate:gold_0676:0.842"
+    ],
+    "gold_0686": [
+      "near_duplicate:gold_0687:0.840",
+      "near_duplicate:gold_0690:0.875"
+    ],
+    "gold_0687": [
+      "near_duplicate:gold_0686:0.840"
+    ],
+    "gold_0690": [
+      "near_duplicate:gold_0686:0.875"
+    ],
+    "gold_0691": [
+      "near_duplicate:gold_0695:0.850"
+    ],
+    "gold_0695": [
+      "near_duplicate:gold_0691:0.850"
+    ],
+    "gold_0696": [
+      "near_duplicate:gold_0697:0.833",
+      "near_duplicate:gold_0700:0.870"
+    ],
+    "gold_0697": [
+      "near_duplicate:gold_0696:0.833"
+    ],
+    "gold_0700": [
+      "near_duplicate:gold_0696:0.870"
+    ],
+    "gold_0706": [
+      "near_duplicate:gold_0710:0.857"
+    ],
+    "gold_0710": [
+      "near_duplicate:gold_0706:0.857"
+    ],
+    "gold_0711": [
+      "near_duplicate:gold_0715:0.833"
+    ],
+    "gold_0715": [
+      "near_duplicate:gold_0711:0.833"
+    ],
+    "gold_0716": [
+      "near_duplicate:gold_0720:0.833"
+    ],
+    "gold_0720": [
+      "near_duplicate:gold_0716:0.833"
+    ],
+    "gold_0721": [
+      "near_duplicate:gold_0725:0.850"
+    ],
+    "gold_0725": [
+      "near_duplicate:gold_0721:0.850"
+    ],
+    "gold_0736": [
+      "near_duplicate:gold_0740:0.824"
+    ],
+    "gold_0740": [
+      "near_duplicate:gold_0736:0.824"
+    ],
+    "gold_0741": [
+      "near_duplicate:gold_0745:0.850"
+    ],
+    "gold_0745": [
+      "near_duplicate:gold_0741:0.850"
+    ],
+    "gold_0746": [
+      "near_duplicate:gold_0750:0.833"
+    ],
+    "gold_0750": [
+      "near_duplicate:gold_0746:0.833"
+    ],
+    "gold_0756": [
+      "near_duplicate:gold_0757:0.833",
+      "near_duplicate:gold_0760:0.870"
+    ],
+    "gold_0757": [
+      "near_duplicate:gold_0756:0.833"
+    ],
+    "gold_0760": [
+      "near_duplicate:gold_0756:0.870"
+    ],
+    "gold_0761": [
+      "near_duplicate:gold_0765:0.833"
+    ],
+    "gold_0765": [
+      "near_duplicate:gold_0761:0.833"
+    ],
+    "gold_0766": [
+      "near_duplicate:gold_0770:0.833"
+    ],
+    "gold_0770": [
+      "near_duplicate:gold_0766:0.833"
+    ],
+    "gold_0776": [
+      "near_duplicate:gold_0778:0.852"
+    ],
+    "gold_0778": [
+      "near_duplicate:gold_0776:0.852"
+    ],
+    "gold_0781": [
+      "near_duplicate:gold_0783:0.826"
+    ],
+    "gold_0783": [
+      "near_duplicate:gold_0781:0.826"
+    ],
+    "gold_0786": [
+      "near_duplicate:gold_0788:0.857"
+    ],
+    "gold_0788": [
+      "near_duplicate:gold_0786:0.857"
+    ],
+    "gold_0796": [
+      "near_duplicate:gold_0798:0.826"
+    ],
+    "gold_0798": [
+      "near_duplicate:gold_0796:0.826"
+    ],
+    "gold_0806": [
+      "near_duplicate:gold_0808:0.846"
+    ],
+    "gold_0808": [
+      "near_duplicate:gold_0806:0.846"
+    ],
+    "gold_0811": [
+      "near_duplicate:gold_0813:0.833"
+    ],
+    "gold_0813": [
+      "near_duplicate:gold_0811:0.833"
+    ],
+    "gold_0821": [
+      "near_duplicate:gold_0822:0.821",
+      "near_duplicate:gold_0826:0.821",
+      "near_duplicate:gold_0828:0.821"
+    ],
+    "gold_0822": [
+      "near_duplicate:gold_0821:0.821"
+    ],
+    "gold_0826": [
+      "near_duplicate:gold_0821:0.821"
+    ],
+    "gold_0828": [
+      "near_duplicate:gold_0821:0.821"
+    ],
+    "gold_0829": [
+      "near_duplicate:gold_0830:0.884",
+      "near_duplicate:gold_0831:0.864",
+      "near_duplicate:gold_0832:0.844",
+      "near_duplicate:gold_0833:0.864",
+      "near_duplicate:gold_0834:0.884",
+      "near_duplicate:gold_0835:0.864",
+      "near_duplicate:gold_0836:0.884"
+    ],
+    "gold_0830": [
+      "near_duplicate:gold_0829:0.884",
+      "near_duplicate:gold_0831:0.848",
+      "near_duplicate:gold_0834:0.826",
+      "near_duplicate:gold_0836:0.826"
+    ],
+    "gold_0831": [
+      "near_duplicate:gold_0829:0.864",
+      "near_duplicate:gold_0830:0.848"
+    ],
+    "gold_0832": [
+      "near_duplicate:gold_0829:0.844"
+    ],
+    "gold_0833": [
+      "near_duplicate:gold_0829:0.864"
+    ],
+    "gold_0834": [
+      "near_duplicate:gold_0829:0.884",
+      "near_duplicate:gold_0830:0.826",
+      "near_duplicate:gold_0835:0.848",
+      "near_duplicate:gold_0836:0.826"
+    ],
+    "gold_0835": [
+      "near_duplicate:gold_0829:0.864",
+      "near_duplicate:gold_0834:0.848"
+    ],
+    "gold_0836": [
+      "near_duplicate:gold_0829:0.884",
+      "near_duplicate:gold_0830:0.826",
+      "near_duplicate:gold_0834:0.826"
+    ],
+    "gold_0837": [
+      "near_duplicate:gold_0838:0.861",
+      "near_duplicate:gold_0839:0.838",
+      "near_duplicate:gold_0841:0.838",
+      "near_duplicate:gold_0842:0.861",
+      "near_duplicate:gold_0843:0.838",
+      "near_duplicate:gold_0844:0.861"
+    ],
+    "gold_0838": [
+      "near_duplicate:gold_0837:0.861",
+      "near_duplicate:gold_0839:0.821"
+    ],
+    "gold_0839": [
+      "near_duplicate:gold_0837:0.838",
+      "near_duplicate:gold_0838:0.821"
+    ],
+    "gold_0841": [
+      "near_duplicate:gold_0837:0.838"
+    ],
+    "gold_0842": [
+      "near_duplicate:gold_0837:0.861",
+      "near_duplicate:gold_0843:0.821"
+    ],
+    "gold_0843": [
+      "near_duplicate:gold_0837:0.838",
+      "near_duplicate:gold_0842:0.821"
+    ],
+    "gold_0844": [
+      "near_duplicate:gold_0837:0.861"
+    ],
+    "gold_0845": [
+      "near_duplicate:gold_0846:0.861",
+      "near_duplicate:gold_0847:0.838",
+      "near_duplicate:gold_0849:0.838",
+      "near_duplicate:gold_0850:0.861",
+      "near_duplicate:gold_0851:0.838",
+      "near_duplicate:gold_0852:0.861"
+    ],
+    "gold_0846": [
+      "near_duplicate:gold_0845:0.861",
+      "near_duplicate:gold_0847:0.821"
+    ],
+    "gold_0847": [
+      "near_duplicate:gold_0845:0.838",
+      "near_duplicate:gold_0846:0.821"
+    ],
+    "gold_0849": [
+      "near_duplicate:gold_0845:0.838"
+    ],
+    "gold_0850": [
+      "near_duplicate:gold_0845:0.861",
+      "near_duplicate:gold_0851:0.821"
+    ],
+    "gold_0851": [
+      "near_duplicate:gold_0845:0.838",
+      "near_duplicate:gold_0850:0.821"
+    ],
+    "gold_0852": [
+      "near_duplicate:gold_0845:0.861"
+    ],
+    "gold_0853": [
+      "near_duplicate:gold_0854:0.865",
+      "near_duplicate:gold_0855:0.842",
+      "near_duplicate:gold_0856:0.821",
+      "near_duplicate:gold_0857:0.842",
+      "near_duplicate:gold_0858:0.865",
+      "near_duplicate:gold_0859:0.842",
+      "near_duplicate:gold_0860:0.865"
+    ],
+    "gold_0854": [
+      "near_duplicate:gold_0853:0.865",
+      "near_duplicate:gold_0855:0.825"
+    ],
+    "gold_0855": [
+      "near_duplicate:gold_0853:0.842",
+      "near_duplicate:gold_0854:0.825"
+    ],
+    "gold_0856": [
+      "near_duplicate:gold_0853:0.821"
+    ],
+    "gold_0857": [
+      "near_duplicate:gold_0853:0.842"
+    ],
+    "gold_0858": [
+      "near_duplicate:gold_0853:0.865",
+      "near_duplicate:gold_0859:0.825"
+    ],
+    "gold_0859": [
+      "near_duplicate:gold_0853:0.842",
+      "near_duplicate:gold_0858:0.825"
+    ],
+    "gold_0860": [
+      "near_duplicate:gold_0853:0.865"
+    ],
+    "gold_0861": [
+      "near_duplicate:gold_0862:0.839",
+      "near_duplicate:gold_0866:0.839",
+      "near_duplicate:gold_0868:0.839"
+    ],
+    "gold_0862": [
+      "near_duplicate:gold_0861:0.839"
+    ],
+    "gold_0866": [
+      "near_duplicate:gold_0861:0.839"
+    ],
+    "gold_0868": [
+      "near_duplicate:gold_0861:0.839"
+    ],
+    "gold_0869": [
+      "near_duplicate:gold_0870:0.844",
+      "near_duplicate:gold_0874:0.844",
+      "near_duplicate:gold_0876:0.844"
+    ],
+    "gold_0870": [
+      "near_duplicate:gold_0869:0.844"
+    ],
+    "gold_0874": [
+      "near_duplicate:gold_0869:0.844"
+    ],
+    "gold_0876": [
+      "near_duplicate:gold_0869:0.844"
+    ],
+    "gold_0877": [
+      "near_duplicate:gold_0878:0.848",
+      "near_duplicate:gold_0879:0.824",
+      "near_duplicate:gold_0881:0.824",
+      "near_duplicate:gold_0882:0.848",
+      "near_duplicate:gold_0883:0.824",
+      "near_duplicate:gold_0884:0.848"
+    ],
+    "gold_0878": [
+      "near_duplicate:gold_0877:0.848"
+    ],
+    "gold_0879": [
+      "near_duplicate:gold_0877:0.824"
+    ],
+    "gold_0881": [
+      "near_duplicate:gold_0877:0.824"
+    ],
+    "gold_0882": [
+      "near_duplicate:gold_0877:0.848"
+    ],
+    "gold_0883": [
+      "near_duplicate:gold_0877:0.824"
+    ],
+    "gold_0884": [
+      "near_duplicate:gold_0877:0.848"
+    ],
+    "gold_0885": [
+      "near_duplicate:gold_0886:0.853",
+      "near_duplicate:gold_0887:0.829",
+      "near_duplicate:gold_0889:0.829",
+      "near_duplicate:gold_0890:0.853",
+      "near_duplicate:gold_0891:0.829",
+      "near_duplicate:gold_0892:0.853"
+    ],
+    "gold_0886": [
+      "near_duplicate:gold_0885:0.853"
+    ],
+    "gold_0887": [
+      "near_duplicate:gold_0885:0.829"
+    ],
+    "gold_0889": [
+      "near_duplicate:gold_0885:0.829"
+    ],
+    "gold_0890": [
+      "near_duplicate:gold_0885:0.853"
+    ],
+    "gold_0891": [
+      "near_duplicate:gold_0885:0.829"
+    ],
+    "gold_0892": [
+      "near_duplicate:gold_0885:0.853"
+    ],
+    "gold_0901": [
+      "near_duplicate:gold_0902:0.844",
+      "near_duplicate:gold_0906:0.844",
+      "near_duplicate:gold_0908:0.844"
+    ],
+    "gold_0902": [
+      "near_duplicate:gold_0901:0.844"
+    ],
+    "gold_0906": [
+      "near_duplicate:gold_0901:0.844"
+    ],
+    "gold_0908": [
+      "near_duplicate:gold_0901:0.844"
+    ],
+    "gold_0909": [
+      "near_duplicate:gold_0910:0.821",
+      "near_duplicate:gold_0914:0.821",
+      "near_duplicate:gold_0916:0.821"
+    ],
+    "gold_0910": [
+      "near_duplicate:gold_0909:0.821"
+    ],
+    "gold_0914": [
+      "near_duplicate:gold_0909:0.821"
+    ],
+    "gold_0916": [
+      "near_duplicate:gold_0909:0.821"
+    ],
+    "gold_0917": [
+      "near_duplicate:gold_0918:0.853",
+      "near_duplicate:gold_0919:0.829",
+      "near_duplicate:gold_0921:0.829",
+      "near_duplicate:gold_0922:0.853",
+      "near_duplicate:gold_0923:0.829",
+      "near_duplicate:gold_0924:0.853"
+    ],
+    "gold_0918": [
+      "near_duplicate:gold_0917:0.853"
+    ],
+    "gold_0919": [
+      "near_duplicate:gold_0917:0.829"
+    ],
+    "gold_0921": [
+      "near_duplicate:gold_0917:0.829"
+    ],
+    "gold_0922": [
+      "near_duplicate:gold_0917:0.853"
+    ],
+    "gold_0923": [
+      "near_duplicate:gold_0917:0.829"
+    ],
+    "gold_0924": [
+      "near_duplicate:gold_0917:0.853"
+    ],
+    "gold_0925": [
+      "near_duplicate:gold_0926:0.848",
+      "near_duplicate:gold_0927:0.824",
+      "near_duplicate:gold_0929:0.824",
+      "near_duplicate:gold_0930:0.848",
+      "near_duplicate:gold_0931:0.824",
+      "near_duplicate:gold_0932:0.848"
+    ],
+    "gold_0926": [
+      "near_duplicate:gold_0925:0.848"
+    ],
+    "gold_0927": [
+      "near_duplicate:gold_0925:0.824"
+    ],
+    "gold_0929": [
+      "near_duplicate:gold_0925:0.824"
+    ],
+    "gold_0930": [
+      "near_duplicate:gold_0925:0.848"
+    ],
+    "gold_0931": [
+      "near_duplicate:gold_0925:0.824"
+    ],
+    "gold_0932": [
+      "near_duplicate:gold_0925:0.848"
+    ],
+    "gold_0941": [
+      "near_duplicate:gold_0942:0.821",
+      "near_duplicate:gold_0946:0.821",
+      "near_duplicate:gold_0948:0.821"
+    ],
+    "gold_0942": [
+      "near_duplicate:gold_0941:0.821"
+    ],
+    "gold_0946": [
+      "near_duplicate:gold_0941:0.821"
+    ],
+    "gold_0948": [
+      "near_duplicate:gold_0941:0.821"
+    ],
+    "gold_0949": [
+      "near_duplicate:gold_0950:0.848",
+      "near_duplicate:gold_0951:0.824",
+      "near_duplicate:gold_0953:0.824",
+      "near_duplicate:gold_0954:0.848",
+      "near_duplicate:gold_0955:0.824",
+      "near_duplicate:gold_0956:0.848"
+    ],
+    "gold_0950": [
+      "near_duplicate:gold_0949:0.848"
+    ],
+    "gold_0951": [
+      "near_duplicate:gold_0949:0.824"
+    ],
+    "gold_0953": [
+      "near_duplicate:gold_0949:0.824"
+    ],
+    "gold_0954": [
+      "near_duplicate:gold_0949:0.848"
+    ],
+    "gold_0955": [
+      "near_duplicate:gold_0949:0.824"
+    ],
+    "gold_0956": [
+      "near_duplicate:gold_0949:0.848"
+    ],
+    "gold_0957": [
+      "near_duplicate:gold_0958:0.865",
+      "near_duplicate:gold_0959:0.842",
+      "near_duplicate:gold_0960:0.821",
+      "near_duplicate:gold_0961:0.842",
+      "near_duplicate:gold_0962:0.865",
+      "near_duplicate:gold_0963:0.842",
+      "near_duplicate:gold_0964:0.865"
+    ],
+    "gold_0958": [
+      "near_duplicate:gold_0957:0.865",
+      "near_duplicate:gold_0959:0.825"
+    ],
+    "gold_0959": [
+      "near_duplicate:gold_0957:0.842",
+      "near_duplicate:gold_0958:0.825"
+    ],
+    "gold_0960": [
+      "near_duplicate:gold_0957:0.821"
+    ],
+    "gold_0961": [
+      "near_duplicate:gold_0957:0.842"
+    ],
+    "gold_0962": [
+      "near_duplicate:gold_0957:0.865",
+      "near_duplicate:gold_0963:0.825"
+    ],
+    "gold_0963": [
+      "near_duplicate:gold_0957:0.842",
+      "near_duplicate:gold_0962:0.825"
+    ],
+    "gold_0964": [
+      "near_duplicate:gold_0957:0.865"
+    ],
+    "gold_0965": [
+      "near_duplicate:gold_0966:0.868",
+      "near_duplicate:gold_0967:0.846",
+      "near_duplicate:gold_0968:0.825",
+      "near_duplicate:gold_0969:0.846",
+      "near_duplicate:gold_0970:0.868",
+      "near_duplicate:gold_0971:0.846",
+      "near_duplicate:gold_0972:0.868"
+    ],
+    "gold_0966": [
+      "near_duplicate:gold_0965:0.868",
+      "near_duplicate:gold_0967:0.829"
+    ],
+    "gold_0967": [
+      "near_duplicate:gold_0965:0.846",
+      "near_duplicate:gold_0966:0.829"
+    ],
+    "gold_0968": [
+      "near_duplicate:gold_0965:0.825"
+    ],
+    "gold_0969": [
+      "near_duplicate:gold_0965:0.846"
+    ],
+    "gold_0970": [
+      "near_duplicate:gold_0965:0.868",
+      "near_duplicate:gold_0971:0.829"
+    ],
+    "gold_0971": [
+      "near_duplicate:gold_0965:0.846",
+      "near_duplicate:gold_0970:0.829"
+    ],
+    "gold_0972": [
+      "near_duplicate:gold_0965:0.868"
+    ],
+    "gold_0973": [
+      "near_duplicate:gold_0974:0.881",
+      "near_duplicate:gold_0975:0.860",
+      "near_duplicate:gold_0976:0.841",
+      "near_duplicate:gold_0977:0.860",
+      "near_duplicate:gold_0978:0.881",
+      "near_duplicate:gold_0979:0.860",
+      "near_duplicate:gold_0980:0.881"
+    ],
+    "gold_0974": [
+      "near_duplicate:gold_0973:0.881",
+      "near_duplicate:gold_0975:0.844",
+      "near_duplicate:gold_0978:0.822",
+      "near_duplicate:gold_0980:0.822"
+    ],
+    "gold_0975": [
+      "near_duplicate:gold_0973:0.860",
+      "near_duplicate:gold_0974:0.844"
+    ],
+    "gold_0976": [
+      "near_duplicate:gold_0973:0.841"
+    ],
+    "gold_0977": [
+      "near_duplicate:gold_0973:0.860"
+    ],
+    "gold_0978": [
+      "near_duplicate:gold_0973:0.881",
+      "near_duplicate:gold_0974:0.822",
+      "near_duplicate:gold_0979:0.844",
+      "near_duplicate:gold_0980:0.822"
+    ],
+    "gold_0979": [
+      "near_duplicate:gold_0973:0.860",
+      "near_duplicate:gold_0978:0.844"
+    ],
+    "gold_0980": [
+      "near_duplicate:gold_0973:0.881",
+      "near_duplicate:gold_0974:0.822",
+      "near_duplicate:gold_0978:0.822"
+    ],
+    "gold_0981": [
+      "near_duplicate:gold_0982:0.844",
+      "near_duplicate:gold_0986:0.844",
+      "near_duplicate:gold_0988:0.844"
+    ],
+    "gold_0982": [
+      "near_duplicate:gold_0981:0.844"
+    ],
+    "gold_0986": [
+      "near_duplicate:gold_0981:0.844"
+    ],
+    "gold_0988": [
+      "near_duplicate:gold_0981:0.844"
+    ],
+    "gold_0989": [
+      "near_duplicate:gold_0990:0.861",
+      "near_duplicate:gold_0991:0.838",
+      "near_duplicate:gold_0993:0.838",
+      "near_duplicate:gold_0994:0.861",
+      "near_duplicate:gold_0995:0.838",
+      "near_duplicate:gold_0996:0.861"
+    ],
+    "gold_0990": [
+      "near_duplicate:gold_0989:0.861",
+      "near_duplicate:gold_0991:0.821"
+    ],
+    "gold_0991": [
+      "near_duplicate:gold_0989:0.838",
+      "near_duplicate:gold_0990:0.821"
+    ],
+    "gold_0993": [
+      "near_duplicate:gold_0989:0.838"
+    ],
+    "gold_0994": [
+      "near_duplicate:gold_0989:0.861",
+      "near_duplicate:gold_0995:0.821"
+    ],
+    "gold_0995": [
+      "near_duplicate:gold_0989:0.838",
+      "near_duplicate:gold_0994:0.821"
+    ],
+    "gold_0996": [
+      "near_duplicate:gold_0989:0.861"
+    ],
+    "gold_1005": [
+      "near_duplicate:gold_1006:0.848",
+      "near_duplicate:gold_1007:0.824",
+      "near_duplicate:gold_1009:0.824",
+      "near_duplicate:gold_1010:0.848",
+      "near_duplicate:gold_1011:0.824",
+      "near_duplicate:gold_1012:0.848"
+    ],
+    "gold_1006": [
+      "near_duplicate:gold_1005:0.848"
+    ],
+    "gold_1007": [
+      "near_duplicate:gold_1005:0.824"
+    ],
+    "gold_1009": [
+      "near_duplicate:gold_1005:0.824"
+    ],
+    "gold_1010": [
+      "near_duplicate:gold_1005:0.848"
+    ],
+    "gold_1011": [
+      "near_duplicate:gold_1005:0.824"
+    ],
+    "gold_1012": [
+      "near_duplicate:gold_1005:0.848"
+    ],
+    "gold_1013": [
+      "near_duplicate:gold_1014:0.848",
+      "near_duplicate:gold_1015:0.824",
+      "near_duplicate:gold_1017:0.824",
+      "near_duplicate:gold_1018:0.848",
+      "near_duplicate:gold_1019:0.824",
+      "near_duplicate:gold_1020:0.848"
+    ],
+    "gold_1014": [
+      "near_duplicate:gold_1013:0.848"
+    ],
+    "gold_1015": [
+      "near_duplicate:gold_1013:0.824"
+    ],
+    "gold_1017": [
+      "near_duplicate:gold_1013:0.824"
+    ],
+    "gold_1018": [
+      "near_duplicate:gold_1013:0.848"
+    ],
+    "gold_1019": [
+      "near_duplicate:gold_1013:0.824"
+    ],
+    "gold_1020": [
+      "near_duplicate:gold_1013:0.848"
+    ],
+    "gold_1029": [
+      "near_duplicate:gold_1030:0.853",
+      "near_duplicate:gold_1031:0.829",
+      "near_duplicate:gold_1033:0.829",
+      "near_duplicate:gold_1034:0.853",
+      "near_duplicate:gold_1035:0.829",
+      "near_duplicate:gold_1036:0.853"
+    ],
+    "gold_1030": [
+      "near_duplicate:gold_1029:0.853"
+    ],
+    "gold_1031": [
+      "near_duplicate:gold_1029:0.829"
+    ],
+    "gold_1033": [
+      "near_duplicate:gold_1029:0.829"
+    ],
+    "gold_1034": [
+      "near_duplicate:gold_1029:0.853"
+    ],
+    "gold_1035": [
+      "near_duplicate:gold_1029:0.829"
+    ],
+    "gold_1036": [
+      "near_duplicate:gold_1029:0.853"
+    ],
+    "gold_1037": [
+      "near_duplicate:gold_1038:0.865",
+      "near_duplicate:gold_1039:0.842",
+      "near_duplicate:gold_1040:0.821",
+      "near_duplicate:gold_1041:0.842",
+      "near_duplicate:gold_1042:0.865",
+      "near_duplicate:gold_1043:0.842",
+      "near_duplicate:gold_1044:0.865"
+    ],
+    "gold_1038": [
+      "near_duplicate:gold_1037:0.865",
+      "near_duplicate:gold_1039:0.825"
+    ],
+    "gold_1039": [
+      "near_duplicate:gold_1037:0.842",
+      "near_duplicate:gold_1038:0.825"
+    ],
+    "gold_1040": [
+      "near_duplicate:gold_1037:0.821"
+    ],
+    "gold_1041": [
+      "near_duplicate:gold_1037:0.842"
+    ],
+    "gold_1042": [
+      "near_duplicate:gold_1037:0.865",
+      "near_duplicate:gold_1043:0.825"
+    ],
+    "gold_1043": [
+      "near_duplicate:gold_1037:0.842",
+      "near_duplicate:gold_1042:0.825"
+    ],
+    "gold_1044": [
+      "near_duplicate:gold_1037:0.865"
+    ],
+    "gold_1045": [
+      "near_duplicate:gold_1046:0.861",
+      "near_duplicate:gold_1047:0.838",
+      "near_duplicate:gold_1049:0.838",
+      "near_duplicate:gold_1050:0.861",
+      "near_duplicate:gold_1051:0.838",
+      "near_duplicate:gold_1052:0.861"
+    ],
+    "gold_1046": [
+      "near_duplicate:gold_1045:0.861",
+      "near_duplicate:gold_1047:0.821"
+    ],
+    "gold_1047": [
+      "near_duplicate:gold_1045:0.838",
+      "near_duplicate:gold_1046:0.821"
+    ],
+    "gold_1049": [
+      "near_duplicate:gold_1045:0.838"
+    ],
+    "gold_1050": [
+      "near_duplicate:gold_1045:0.861",
+      "near_duplicate:gold_1051:0.821"
+    ],
+    "gold_1051": [
+      "near_duplicate:gold_1045:0.838",
+      "near_duplicate:gold_1050:0.821"
+    ],
+    "gold_1052": [
+      "near_duplicate:gold_1045:0.861"
+    ],
+    "gold_0007": [],
+    "gold_0008": [],
+    "gold_0009": [],
+    "gold_0010": [],
+    "gold_0011": [],
+    "gold_0012": [],
+    "gold_0013": [],
+    "gold_0015": [],
+    "gold_0016": [],
+    "gold_0017": [],
+    "gold_0018": [],
+    "gold_0019": [],
+    "gold_0020": [],
+    "gold_0021": [],
+    "gold_0022": [],
+    "gold_0023": [],
+    "gold_0024": [],
+    "gold_0025": [],
+    "gold_0027": [],
+    "gold_0029": [],
+    "gold_0031": [],
+    "gold_0032": [],
+    "gold_0033": [],
+    "gold_0034": [],
+    "gold_0035": [],
+    "gold_0036": [],
+    "gold_0037": [],
+    "gold_0038": [],
+    "gold_0041": [],
+    "gold_0042": [],
+    "gold_0043": [],
+    "gold_0044": [],
+    "gold_0045": [],
+    "gold_0046": [],
+    "gold_0048": [],
+    "gold_0049": [],
+    "gold_0050": [],
+    "gold_0051": [],
+    "gold_0057": [],
+    "gold_0058": [],
+    "gold_0059": [],
+    "gold_0061": [],
+    "gold_0063": [],
+    "gold_0064": [],
+    "gold_0065": [],
+    "gold_0066": [],
+    "gold_0067": [],
+    "gold_0069": [],
+    "gold_0070": [],
+    "gold_0071": [],
+    "gold_0072": [],
+    "gold_0073": [],
+    "gold_0074": [],
+    "gold_0075": [],
+    "gold_0076": [],
+    "gold_0077": [],
+    "gold_0078": [],
+    "gold_0079": [],
+    "gold_0080": [],
+    "gold_0081": [],
+    "gold_0082": [],
+    "gold_0084": [],
+    "gold_0085": [],
+    "gold_0086": [],
+    "gold_0087": [],
+    "gold_0088": [],
+    "gold_0089": [],
+    "gold_0090": [],
+    "gold_0091": [],
+    "gold_0092": [],
+    "gold_0093": [],
+    "gold_0094": [],
+    "gold_0095": [],
+    "gold_0097": [],
+    "gold_0098": [],
+    "gold_0099": [],
+    "gold_0100": [],
+    "gold_0101": [],
+    "gold_0102": [],
+    "gold_0103": [],
+    "gold_0104": [],
+    "gold_0105": [],
+    "gold_0107": [],
+    "gold_0108": [],
+    "gold_0109": [],
+    "gold_0111": [],
+    "gold_0112": [],
+    "gold_0113": [],
+    "gold_0114": [],
+    "gold_0115": [],
+    "gold_0116": [],
+    "gold_0117": [],
+    "gold_0118": [],
+    "gold_0119": [],
+    "gold_0120": [],
+    "gold_0121": [],
+    "gold_0122": [],
+    "gold_0123": [],
+    "gold_0124": [],
+    "gold_0125": [],
+    "gold_0126": [],
+    "gold_0127": [],
+    "gold_0128": [],
+    "gold_0129": [],
+    "gold_0130": [],
+    "gold_0131": [],
+    "gold_0132": [],
+    "gold_0133": [],
+    "gold_0135": [],
+    "gold_0136": [],
+    "gold_0137": [],
+    "gold_0138": [],
+    "gold_0140": [],
+    "gold_0141": [],
+    "gold_0142": [],
+    "gold_0145": [],
+    "gold_0146": [],
+    "gold_0147": [],
+    "gold_0148": [],
+    "gold_0150": [],
+    "0153": [],
+    "0172": [],
+    "0181": [],
+    "0182": [],
+    "0184": [],
+    "0190": [],
+    "0193": [],
+    "0198": [],
+    "0199": [],
+    "0202": [],
+    "0206": [],
+    "0212": [],
+    "0216": [],
+    "0222": [],
+    "0226": [],
+    "0231": [],
+    "0233": [],
+    "0234": [],
+    "0243": [],
+    "0246": [],
+    "0253": [],
+    "0255": [],
+    "0257": [],
+    "0264": [],
+    "0266": [],
+    "0267": [],
+    "0270": [],
+    "0271": [],
+    "0272": [],
+    "0273": [],
+    "0274": [],
+    "0276": [],
+    "0279": [],
+    "0280": [],
+    "0281": [],
+    "0282": [],
+    "0286": [],
+    "0289": [],
+    "0291": [],
+    "0292": [],
+    "0293": [],
+    "0294": [],
+    "0295": [],
+    "0300": [],
+    "0301": [],
+    "0307": [],
+    "0308": [],
+    "0311": [],
+    "0312": [],
+    "0313": [],
+    "0314": [],
+    "0315": [],
+    "0320": [],
+    "0321": [],
+    "0326": [],
+    "0331": [],
+    "0332": [],
+    "0333": [],
+    "0334": [],
+    "0335": [],
+    "0340": [],
+    "0341": [],
+    "0345": [],
+    "0347": [],
+    "0351": [],
+    "0352": [],
+    "0353": [],
+    "0354": [],
+    "0355": [],
+    "0356": [],
+    "0357": [],
+    "0358": [],
+    "0359": [],
+    "0360": [],
+    "0371": [],
+    "0372": [],
+    "0373": [],
+    "0374": [],
+    "0375": [],
+    "0381": [],
+    "0382": [],
+    "0383": [],
+    "0388": [],
+    "0389": [],
+    "0391": [],
+    "0392": [],
+    "0393": [],
+    "0394": [],
+    "0396": [],
+    "0398": [],
+    "0400": [],
+    "gold_0001": [],
+    "gold_0002": [],
+    "gold_0003": [],
+    "gold_0004": [],
+    "gold_0005": [],
+    "gold_0401": [],
+    "gold_0402": [],
+    "gold_0403": [],
+    "gold_0404": [],
+    "gold_0405": [],
+    "gold_0406": [],
+    "gold_0407": [],
+    "gold_0408": [],
+    "gold_0409": [],
+    "gold_0410": [],
+    "gold_0411": [],
+    "gold_0412": [],
+    "gold_0413": [],
+    "gold_0414": [],
+    "gold_0415": [],
+    "gold_0416": [],
+    "gold_0417": [],
+    "gold_0418": [],
+    "gold_0419": [],
+    "gold_0420": [],
+    "gold_0421": [],
+    "gold_0422": [],
+    "gold_0423": [],
+    "gold_0424": [],
+    "gold_0425": [],
+    "gold_0426": [],
+    "gold_0427": [],
+    "gold_0428": [],
+    "gold_0429": [],
+    "gold_0430": [],
+    "gold_0431": [],
+    "gold_0432": [],
+    "gold_0433": [],
+    "gold_0434": [],
+    "gold_0435": [],
+    "gold_0436": [],
+    "gold_0437": [],
+    "gold_0438": [],
+    "gold_0439": [],
+    "gold_0440": [],
+    "gold_0441": [],
+    "gold_0442": [],
+    "gold_0443": [],
+    "gold_0444": [],
+    "gold_0445": [],
+    "gold_0446": [],
+    "gold_0447": [],
+    "gold_0448": [],
+    "gold_0449": [],
+    "gold_0450": [],
+    "gold_0451": [],
+    "gold_0452": [],
+    "gold_0453": [],
+    "gold_0454": [],
+    "gold_0455": [],
+    "gold_0456": [],
+    "gold_0457": [],
+    "gold_0458": [],
+    "gold_0459": [],
+    "gold_0460": [],
+    "gold_0461": [],
+    "gold_0462": [],
+    "gold_0463": [],
+    "gold_0464": [],
+    "gold_0465": [],
+    "gold_0466": [],
+    "gold_0467": [],
+    "gold_0468": [],
+    "gold_0469": [],
+    "gold_0470": [],
+    "gold_0471": [],
+    "gold_0472": [],
+    "gold_0473": [],
+    "gold_0474": [],
+    "gold_0475": [],
+    "gold_0476": [],
+    "gold_0477": [],
+    "gold_0478": [],
+    "gold_0479": [],
+    "gold_0480": [],
+    "gold_0481": [],
+    "gold_0482": [],
+    "gold_0483": [],
+    "gold_0484": [],
+    "gold_0486": [],
+    "gold_0487": [],
+    "gold_0488": [],
+    "gold_0489": [],
+    "gold_0490": [],
+    "gold_0491": [],
+    "gold_0492": [],
+    "gold_0493": [],
+    "gold_0494": [],
+    "gold_0495": [],
+    "gold_0496": [],
+    "gold_0497": [],
+    "gold_0498": [],
+    "gold_0499": [],
+    "gold_0500": [],
+    "gold_0501": [],
+    "gold_0502": [],
+    "gold_0503": [],
+    "gold_0504": [],
+    "gold_0505": [],
+    "gold_0506": [],
+    "gold_0507": [],
+    "gold_0508": [],
+    "gold_0509": [],
+    "gold_0510": [],
+    "gold_0511": [],
+    "gold_0512": [],
+    "gold_0513": [],
+    "gold_0514": [],
+    "gold_0515": [],
+    "gold_0516": [],
+    "gold_0517": [],
+    "gold_0518": [],
+    "gold_0519": [],
+    "gold_0520": [],
+    "gold_0521": [],
+    "gold_0522": [],
+    "gold_0523": [],
+    "gold_0524": [],
+    "gold_0525": [],
+    "gold_0526": [],
+    "gold_0527": [],
+    "gold_0528": [],
+    "gold_0529": [],
+    "gold_0530": [],
+    "gold_0531": [],
+    "gold_0532": [],
+    "gold_0533": [],
+    "gold_0534": [],
+    "gold_0535": [],
+    "gold_0536": [],
+    "gold_0537": [],
+    "gold_0538": [],
+    "gold_0539": [],
+    "gold_0540": [],
+    "gold_0541": [],
+    "gold_0542": [],
+    "gold_0543": [],
+    "gold_0544": [],
+    "gold_0546": [],
+    "gold_0547": [],
+    "gold_0548": [],
+    "gold_0549": [],
+    "gold_0550": [],
+    "gold_0551": [],
+    "gold_0552": [],
+    "gold_0553": [],
+    "gold_0554": [],
+    "gold_0555": [],
+    "gold_0556": [],
+    "gold_0557": [],
+    "gold_0558": [],
+    "gold_0559": [],
+    "gold_0560": [],
+    "gold_0561": [],
+    "gold_0562": [],
+    "gold_0565": [],
+    "gold_0566": [],
+    "gold_0570": [],
+    "gold_0573": [],
+    "gold_0574": [],
+    "gold_0578": [],
+    "gold_0581": [],
+    "gold_0582": [],
+    "gold_0585": [],
+    "gold_0586": [],
+    "gold_0589": [],
+    "gold_0590": [],
+    "gold_0591": [],
+    "gold_0592": [],
+    "gold_0593": [],
+    "gold_0594": [],
+    "gold_0597": [],
+    "gold_0598": [],
+    "gold_0601": [],
+    "gold_0602": [],
+    "gold_0605": [],
+    "gold_0606": [],
+    "gold_0609": [],
+    "gold_0610": [],
+    "gold_0613": [],
+    "gold_0614": [],
+    "gold_0617": [],
+    "gold_0618": [],
+    "gold_0619": [],
+    "gold_0620": [],
+    "gold_0621": [],
+    "gold_0622": [],
+    "gold_0625": [],
+    "gold_0626": [],
+    "gold_0629": [],
+    "gold_0630": [],
+    "gold_0632": [],
+    "gold_0633": [],
+    "gold_0634": [],
+    "gold_0635": [],
+    "gold_0636": [],
+    "gold_0637": [],
+    "gold_0638": [],
+    "gold_0639": [],
+    "gold_0640": [],
+    "gold_0641": [],
+    "gold_0642": [],
+    "gold_0643": [],
+    "gold_0644": [],
+    "gold_0645": [],
+    "gold_0647": [],
+    "gold_0650": [],
+    "gold_0651": [],
+    "gold_0652": [],
+    "gold_0653": [],
+    "gold_0654": [],
+    "gold_0655": [],
+    "gold_0657": [],
+    "gold_0660": [],
+    "gold_0661": [],
+    "gold_0662": [],
+    "gold_0663": [],
+    "gold_0664": [],
+    "gold_0665": [],
+    "gold_0666": [],
+    "gold_0667": [],
+    "gold_0668": [],
+    "gold_0669": [],
+    "gold_0670": [],
+    "gold_0672": [],
+    "gold_0673": [],
+    "gold_0674": [],
+    "gold_0677": [],
+    "gold_0678": [],
+    "gold_0679": [],
+    "gold_0681": [],
+    "gold_0682": [],
+    "gold_0683": [],
+    "gold_0684": [],
+    "gold_0685": [],
+    "gold_0688": [],
+    "gold_0689": [],
+    "gold_0692": [],
+    "gold_0693": [],
+    "gold_0694": [],
+    "gold_0698": [],
+    "gold_0699": [],
+    "gold_0707": [],
+    "gold_0708": [],
+    "gold_0709": [],
+    "gold_0712": [],
+    "gold_0713": [],
+    "gold_0714": [],
+    "gold_0717": [],
+    "gold_0718": [],
+    "gold_0719": [],
+    "gold_0722": [],
+    "gold_0723": [],
+    "gold_0724": [],
+    "gold_0727": [],
+    "gold_0728": [],
+    "gold_0729": [],
+    "gold_0732": [],
+    "gold_0733": [],
+    "gold_0734": [],
+    "gold_0737": [],
+    "gold_0738": [],
+    "gold_0739": [],
+    "gold_0742": [],
+    "gold_0743": [],
+    "gold_0744": [],
+    "gold_0747": [],
+    "gold_0748": [],
+    "gold_0749": [],
+    "gold_0751": [],
+    "gold_0752": [],
+    "gold_0753": [],
+    "gold_0754": [],
+    "gold_0755": [],
+    "gold_0758": [],
+    "gold_0759": [],
+    "gold_0762": [],
+    "gold_0763": [],
+    "gold_0764": [],
+    "gold_0767": [],
+    "gold_0768": [],
+    "gold_0769": [],
+    "gold_0772": [],
+    "gold_0773": [],
+    "gold_0774": [],
+    "gold_0775": [],
+    "gold_0777": [],
+    "gold_0779": [],
+    "gold_0780": [],
+    "gold_0782": [],
+    "gold_0784": [],
+    "gold_0785": [],
+    "gold_0787": [],
+    "gold_0789": [],
+    "gold_0790": [],
+    "gold_0791": [],
+    "gold_0792": [],
+    "gold_0793": [],
+    "gold_0794": [],
+    "gold_0795": [],
+    "gold_0797": [],
+    "gold_0799": [],
+    "gold_0800": [],
+    "gold_0801": [],
+    "gold_0802": [],
+    "gold_0803": [],
+    "gold_0804": [],
+    "gold_0805": [],
+    "gold_0807": [],
+    "gold_0809": [],
+    "gold_0810": [],
+    "gold_0812": [],
+    "gold_0814": [],
+    "gold_0815": [],
+    "gold_0816": [],
+    "gold_0817": [],
+    "gold_0818": [],
+    "gold_0819": [],
+    "gold_0820": [],
+    "gold_0823": [],
+    "gold_0824": [],
+    "gold_0825": [],
+    "gold_0827": [],
+    "gold_0840": [],
+    "gold_0848": [],
+    "gold_0863": [],
+    "gold_0864": [],
+    "gold_0865": [],
+    "gold_0867": [],
+    "gold_0871": [],
+    "gold_0872": [],
+    "gold_0873": [],
+    "gold_0875": [],
+    "gold_0880": [],
+    "gold_0888": [],
+    "gold_0903": [],
+    "gold_0904": [],
+    "gold_0905": [],
+    "gold_0907": [],
+    "gold_0911": [],
+    "gold_0912": [],
+    "gold_0913": [],
+    "gold_0915": [],
+    "gold_0920": [],
+    "gold_0928": [],
+    "gold_0933": [],
+    "gold_0934": [],
+    "gold_0935": [],
+    "gold_0936": [],
+    "gold_0937": [],
+    "gold_0938": [],
+    "gold_0939": [],
+    "gold_0940": [],
+    "gold_0943": [],
+    "gold_0944": [],
+    "gold_0945": [],
+    "gold_0947": [],
+    "gold_0952": [],
+    "gold_0983": [],
+    "gold_0984": [],
+    "gold_0985": [],
+    "gold_0987": [],
+    "gold_0992": [],
+    "gold_0997": [],
+    "gold_0998": [],
+    "gold_0999": [],
+    "gold_1000": [],
+    "gold_1001": [],
+    "gold_1002": [],
+    "gold_1003": [],
+    "gold_1004": [],
+    "gold_1008": [],
+    "gold_1016": [],
+    "gold_1021": [],
+    "gold_1022": [],
+    "gold_1023": [],
+    "gold_1024": [],
+    "gold_1025": [],
+    "gold_1026": [],
+    "gold_1027": [],
+    "gold_1028": [],
+    "gold_1032": [],
+    "gold_1048": [],
+    "gold_1053": [],
+    "gold_1054": [],
+    "gold_1055": [],
+    "gold_1056": [],
+    "gold_1057": [],
+    "gold_1058": [],
+    "gold_1059": [],
+    "gold_1060": []
+  },
+  "near_pairs": [
+    {
+      "a": "gold_0628",
+      "b": "gold_0735",
+      "score": 0.9
+    },
+    {
+      "a": "gold_0627",
+      "b": "gold_0731",
+      "score": 0.8947
+    },
+    {
+      "a": "gold_0631",
+      "b": "gold_0771",
+      "score": 0.8947
+    },
+    {
+      "a": "gold_0829",
+      "b": "gold_0830",
+      "score": 0.8837
+    },
+    {
+      "a": "gold_0829",
+      "b": "gold_0834",
+      "score": 0.8837
+    },
+    {
+      "a": "gold_0829",
+      "b": "gold_0836",
+      "score": 0.8837
+    },
+    {
+      "a": "gold_0973",
+      "b": "gold_0974",
+      "score": 0.881
+    },
+    {
+      "a": "gold_0973",
+      "b": "gold_0978",
+      "score": 0.881
+    },
+    {
+      "a": "gold_0973",
+      "b": "gold_0980",
+      "score": 0.881
+    },
+    {
+      "a": "gold_0575",
+      "b": "gold_0576",
+      "score": 0.88
+    },
+    {
+      "a": "gold_0686",
+      "b": "gold_0690",
+      "score": 0.875
+    },
+    {
+      "a": "gold_0696",
+      "b": "gold_0700",
+      "score": 0.8696
+    },
+    {
+      "a": "gold_0756",
+      "b": "gold_0760",
+      "score": 0.8696
+    },
+    {
+      "a": "gold_0965",
+      "b": "gold_0966",
+      "score": 0.8684
+    },
+    {
+      "a": "gold_0965",
+      "b": "gold_0970",
+      "score": 0.8684
+    },
+    {
+      "a": "gold_0965",
+      "b": "gold_0972",
+      "score": 0.8684
+    },
+    {
+      "a": "gold_0588",
+      "b": "gold_0730",
+      "score": 0.8667
+    },
+    {
+      "a": "gold_0853",
+      "b": "gold_0854",
+      "score": 0.8649
+    },
+    {
+      "a": "gold_0853",
+      "b": "gold_0858",
+      "score": 0.8649
+    },
+    {
+      "a": "gold_0853",
+      "b": "gold_0860",
+      "score": 0.8649
+    },
+    {
+      "a": "gold_0957",
+      "b": "gold_0958",
+      "score": 0.8649
+    },
+    {
+      "a": "gold_0957",
+      "b": "gold_0962",
+      "score": 0.8649
+    },
+    {
+      "a": "gold_0957",
+      "b": "gold_0964",
+      "score": 0.8649
+    },
+    {
+      "a": "gold_1037",
+      "b": "gold_1038",
+      "score": 0.8649
+    },
+    {
+      "a": "gold_1037",
+      "b": "gold_1042",
+      "score": 0.8649
+    },
+    {
+      "a": "gold_1037",
+      "b": "gold_1044",
+      "score": 0.8649
+    },
+    {
+      "a": "gold_0567",
+      "b": "gold_0568",
+      "score": 0.8636
+    },
+    {
+      "a": "gold_0829",
+      "b": "gold_0831",
+      "score": 0.8636
+    },
+    {
+      "a": "gold_0829",
+      "b": "gold_0833",
+      "score": 0.8636
+    },
+    {
+      "a": "gold_0829",
+      "b": "gold_0835",
+      "score": 0.8636
+    },
+    {
+      "a": "gold_0837",
+      "b": "gold_0838",
+      "score": 0.8611
+    },
+    {
+      "a": "gold_0837",
+      "b": "gold_0842",
+      "score": 0.8611
+    },
+    {
+      "a": "gold_0837",
+      "b": "gold_0844",
+      "score": 0.8611
+    },
+    {
+      "a": "gold_0845",
+      "b": "gold_0846",
+      "score": 0.8611
+    },
+    {
+      "a": "gold_0845",
+      "b": "gold_0850",
+      "score": 0.8611
+    },
+    {
+      "a": "gold_0845",
+      "b": "gold_0852",
+      "score": 0.8611
+    },
+    {
+      "a": "gold_0989",
+      "b": "gold_0990",
+      "score": 0.8611
+    },
+    {
+      "a": "gold_0989",
+      "b": "gold_0994",
+      "score": 0.8611
+    },
+    {
+      "a": "gold_0989",
+      "b": "gold_0996",
+      "score": 0.8611
+    },
+    {
+      "a": "gold_1045",
+      "b": "gold_1046",
+      "score": 0.8611
+    },
+    {
+      "a": "gold_1045",
+      "b": "gold_1050",
+      "score": 0.8611
+    },
+    {
+      "a": "gold_1045",
+      "b": "gold_1052",
+      "score": 0.8611
+    },
+    {
+      "a": "gold_0973",
+      "b": "gold_0975",
+      "score": 0.8605
+    },
+    {
+      "a": "gold_0973",
+      "b": "gold_0977",
+      "score": 0.8605
+    },
+    {
+      "a": "gold_0973",
+      "b": "gold_0979",
+      "score": 0.8605
+    },
+    {
+      "a": "gold_0563",
+      "b": "gold_0564",
+      "score": 0.8571
+    },
+    {
+      "a": "gold_0571",
+      "b": "gold_0572",
+      "score": 0.8571
+    },
+    {
+      "a": "gold_0587",
+      "b": "gold_0726",
+      "score": 0.8571
+    },
+    {
+      "a": "gold_0595",
+      "b": "gold_0596",
+      "score": 0.8571
+    },
+    {
+      "a": "gold_0607",
+      "b": "gold_0608",
+      "score": 0.8571
+    },
+    {
+      "a": "gold_0615",
+      "b": "gold_0616",
+      "score": 0.8571
+    },
+    {
+      "a": "gold_0706",
+      "b": "gold_0710",
+      "score": 0.8571
+    },
+    {
+      "a": "gold_0786",
+      "b": "gold_0788",
+      "score": 0.8571
+    },
+    {
+      "a": "gold_0885",
+      "b": "gold_0886",
+      "score": 0.8529
+    },
+    {
+      "a": "gold_0885",
+      "b": "gold_0890",
+      "score": 0.8529
+    },
+    {
+      "a": "gold_0885",
+      "b": "gold_0892",
+      "score": 0.8529
+    },
+    {
+      "a": "gold_0893",
+      "b": "gold_0894",
+      "score": 0.8529
+    },
+    {
+      "a": "gold_0893",
+      "b": "gold_0898",
+      "score": 0.8529
+    },
+    {
+      "a": "gold_0893",
+      "b": "gold_0900",
+      "score": 0.8529
+    },
+    {
+      "a": "gold_0917",
+      "b": "gold_0918",
+      "score": 0.8529
+    },
+    {
+      "a": "gold_0917",
+      "b": "gold_0922",
+      "score": 0.8529
+    },
+    {
+      "a": "gold_0917",
+      "b": "gold_0924",
+      "score": 0.8529
+    },
+    {
+      "a": "gold_1029",
+      "b": "gold_1030",
+      "score": 0.8529
+    },
+    {
+      "a": "gold_1029",
+      "b": "gold_1034",
+      "score": 0.8529
+    },
+    {
+      "a": "gold_1029",
+      "b": "gold_1036",
+      "score": 0.8529
+    },
+    {
+      "a": "gold_0776",
+      "b": "gold_0778",
+      "score": 0.8519
+    },
+    {
+      "a": "gold_0579",
+      "b": "gold_0580",
+      "score": 0.85
+    },
+    {
+      "a": "gold_0623",
+      "b": "gold_0624",
+      "score": 0.85
+    },
+    {
+      "a": "gold_0627",
+      "b": "gold_0628",
+      "score": 0.85
+    },
+    {
+      "a": "gold_0691",
+      "b": "gold_0695",
+      "score": 0.85
+    },
+    {
+      "a": "gold_0721",
+      "b": "gold_0725",
+      "score": 0.85
+    },
+    {
+      "a": "gold_0731",
+      "b": "gold_0735",
+      "score": 0.85
+    },
+    {
+      "a": "gold_0741",
+      "b": "gold_0745",
+      "score": 0.85
+    },
+    {
+      "a": "gold_0877",
+      "b": "gold_0878",
+      "score": 0.8485
+    },
+    {
+      "a": "gold_0877",
+      "b": "gold_0882",
+      "score": 0.8485
+    },
+    {
+      "a": "gold_0877",
+      "b": "gold_0884",
+      "score": 0.8485
+    },
+    {
+      "a": "gold_0925",
+      "b": "gold_0926",
+      "score": 0.8485
+    },
+    {
+      "a": "gold_0925",
+      "b": "gold_0930",
+      "score": 0.8485
+    },
+    {
+      "a": "gold_0925",
+      "b": "gold_0932",
+      "score": 0.8485
+    },
+    {
+      "a": "gold_0949",
+      "b": "gold_0950",
+      "score": 0.8485
+    },
+    {
+      "a": "gold_0949",
+      "b": "gold_0954",
+      "score": 0.8485
+    },
+    {
+      "a": "gold_0949",
+      "b": "gold_0956",
+      "score": 0.8485
+    },
+    {
+      "a": "gold_1005",
+      "b": "gold_1006",
+      "score": 0.8485
+    },
+    {
+      "a": "gold_1005",
+      "b": "gold_1010",
+      "score": 0.8485
+    },
+    {
+      "a": "gold_1005",
+      "b": "gold_1012",
+      "score": 0.8485
+    },
+    {
+      "a": "gold_1013",
+      "b": "gold_1014",
+      "score": 0.8485
+    },
+    {
+      "a": "gold_1013",
+      "b": "gold_1018",
+      "score": 0.8485
+    },
+    {
+      "a": "gold_1013",
+      "b": "gold_1020",
+      "score": 0.8485
+    },
+    {
+      "a": "gold_0830",
+      "b": "gold_0831",
+      "score": 0.8478
+    },
+    {
+      "a": "gold_0834",
+      "b": "gold_0835",
+      "score": 0.8478
+    },
+    {
+      "a": "gold_0575",
+      "b": "gold_0577",
+      "score": 0.8462
+    },
+    {
+      "a": "gold_0806",
+      "b": "gold_0808",
+      "score": 0.8462
+    },
+    {
+      "a": "gold_0965",
+      "b": "gold_0967",
+      "score": 0.8462
+    },
+    {
+      "a": "gold_0965",
+      "b": "gold_0969",
+      "score": 0.8462
+    },
+    {
+      "a": "gold_0965",
+      "b": "gold_0971",
+      "score": 0.8462
+    },
+    {
+      "a": "gold_0829",
+      "b": "gold_0832",
+      "score": 0.8444
+    },
+    {
+      "a": "gold_0974",
+      "b": "gold_0975",
+      "score": 0.8444
+    },
+    {
+      "a": "gold_0978",
+      "b": "gold_0979",
+      "score": 0.8444
+    },
+    {
+      "a": "gold_0869",
+      "b": "gold_0870",
+      "score": 0.8438
+    },
+    {
+      "a": "gold_0869",
+      "b": "gold_0874",
+      "score": 0.8438
+    },
+    {
+      "a": "gold_0869",
+      "b": "gold_0876",
+      "score": 0.8438
+    },
+    {
+      "a": "gold_0901",
+      "b": "gold_0902",
+      "score": 0.8438
+    },
+    {
+      "a": "gold_0901",
+      "b": "gold_0906",
+      "score": 0.8438
+    },
+    {
+      "a": "gold_0901",
+      "b": "gold_0908",
+      "score": 0.8438
+    },
+    {
+      "a": "gold_0981",
+      "b": "gold_0982",
+      "score": 0.8438
+    },
+    {
+      "a": "gold_0981",
+      "b": "gold_0986",
+      "score": 0.8438
+    },
+    {
+      "a": "gold_0981",
+      "b": "gold_0988",
+      "score": 0.8438
+    },
+    {
+      "a": "gold_0603",
+      "b": "gold_0604",
+      "score": 0.8421
+    },
+    {
+      "a": "gold_0671",
+      "b": "gold_0675",
+      "score": 0.8421
+    },
+    {
+      "a": "gold_0676",
+      "b": "gold_0680",
+      "score": 0.8421
+    },
+    {
+      "a": "gold_0701",
+      "b": "gold_0705",
+      "score": 0.8421
+    },
+    {
+      "a": "gold_0853",
+      "b": "gold_0855",
+      "score": 0.8421
+    },
+    {
+      "a": "gold_0853",
+      "b": "gold_0857",
+      "score": 0.8421
+    },
+    {
+      "a": "gold_0853",
+      "b": "gold_0859",
+      "score": 0.8421
+    },
+    {
+      "a": "gold_0957",
+      "b": "gold_0959",
+      "score": 0.8421
+    },
+    {
+      "a": "gold_0957",
+      "b": "gold_0961",
+      "score": 0.8421
+    },
+    {
+      "a": "gold_0957",
+      "b": "gold_0963",
+      "score": 0.8421
+    },
+    {
+      "a": "gold_1037",
+      "b": "gold_1039",
+      "score": 0.8421
+    },
+    {
+      "a": "gold_1037",
+      "b": "gold_1041",
+      "score": 0.8421
+    },
+    {
+      "a": "gold_1037",
+      "b": "gold_1043",
+      "score": 0.8421
+    },
+    {
+      "a": "gold_0973",
+      "b": "gold_0976",
+      "score": 0.8409
+    },
+    {
+      "a": "gold_0686",
+      "b": "gold_0687",
+      "score": 0.84
+    },
+    {
+      "a": "gold_0861",
+      "b": "gold_0862",
+      "score": 0.8387
+    },
+    {
+      "a": "gold_0861",
+      "b": "gold_0866",
+      "score": 0.8387
+    },
+    {
+      "a": "gold_0861",
+      "b": "gold_0868",
+      "score": 0.8387
+    },
+    {
+      "a": "gold_0837",
+      "b": "gold_0839",
+      "score": 0.8378
+    },
+    {
+      "a": "gold_0837",
+      "b": "gold_0841",
+      "score": 0.8378
+    },
+    {
+      "a": "gold_0837",
+      "b": "gold_0843",
+      "score": 0.8378
+    },
+    {
+      "a": "gold_0845",
+      "b": "gold_0847",
+      "score": 0.8378
+    },
+    {
+      "a": "gold_0845",
+      "b": "gold_0849",
+      "score": 0.8378
+    },
+    {
+      "a": "gold_0845",
+      "b": "gold_0851",
+      "score": 0.8378
+    },
+    {
+      "a": "gold_0989",
+      "b": "gold_0991",
+      "score": 0.8378
+    },
+    {
+      "a": "gold_0989",
+      "b": "gold_0993",
+      "score": 0.8378
+    },
+    {
+      "a": "gold_0989",
+      "b": "gold_0995",
+      "score": 0.8378
+    },
+    {
+      "a": "gold_1045",
+      "b": "gold_1047",
+      "score": 0.8378
+    },
+    {
+      "a": "gold_1045",
+      "b": "gold_1049",
+      "score": 0.8378
+    },
+    {
+      "a": "gold_1045",
+      "b": "gold_1051",
+      "score": 0.8378
+    },
+    {
+      "a": "gold_0583",
+      "b": "gold_0584",
+      "score": 0.8333
+    },
+    {
+      "a": "gold_0599",
+      "b": "gold_0600",
+      "score": 0.8333
+    },
+    {
+      "a": "gold_0611",
+      "b": "gold_0612",
+      "score": 0.8333
+    },
+    {
+      "a": "gold_0696",
+      "b": "gold_0697",
+      "score": 0.8333
+    },
+    {
+      "a": "gold_0711",
+      "b": "gold_0715",
+      "score": 0.8333
+    },
+    {
+      "a": "gold_0716",
+      "b": "gold_0720",
+      "score": 0.8333
+    },
+    {
+      "a": "gold_0746",
+      "b": "gold_0750",
+      "score": 0.8333
+    },
+    {
+      "a": "gold_0756",
+      "b": "gold_0757",
+      "score": 0.8333
+    },
+    {
+      "a": "gold_0761",
+      "b": "gold_0765",
+      "score": 0.8333
+    },
+    {
+      "a": "gold_0766",
+      "b": "gold_0770",
+      "score": 0.8333
+    },
+    {
+      "a": "gold_0811",
+      "b": "gold_0813",
+      "score": 0.8333
+    },
+    {
+      "a": "gold_0966",
+      "b": "gold_0967",
+      "score": 0.8293
+    },
+    {
+      "a": "gold_0970",
+      "b": "gold_0971",
+      "score": 0.8293
+    },
+    {
+      "a": "gold_0885",
+      "b": "gold_0887",
+      "score": 0.8286
+    },
+    {
+      "a": "gold_0885",
+      "b": "gold_0889",
+      "score": 0.8286
+    },
+    {
+      "a": "gold_0885",
+      "b": "gold_0891",
+      "score": 0.8286
+    },
+    {
+      "a": "gold_0893",
+      "b": "gold_0895",
+      "score": 0.8286
+    },
+    {
+      "a": "gold_0893",
+      "b": "gold_0897",
+      "score": 0.8286
+    },
+    {
+      "a": "gold_0893",
+      "b": "gold_0899",
+      "score": 0.8286
+    },
+    {
+      "a": "gold_0917",
+      "b": "gold_0919",
+      "score": 0.8286
+    },
+    {
+      "a": "gold_0917",
+      "b": "gold_0921",
+      "score": 0.8286
+    },
+    {
+      "a": "gold_0917",
+      "b": "gold_0923",
+      "score": 0.8286
+    },
+    {
+      "a": "gold_1029",
+      "b": "gold_1031",
+      "score": 0.8286
+    },
+    {
+      "a": "gold_1029",
+      "b": "gold_1033",
+      "score": 0.8286
+    },
+    {
+      "a": "gold_1029",
+      "b": "gold_1035",
+      "score": 0.8286
+    },
+    {
+      "a": "gold_0567",
+      "b": "gold_0569",
+      "score": 0.8261
+    },
+    {
+      "a": "gold_0646",
+      "b": "gold_0648",
+      "score": 0.8261
+    },
+    {
+      "a": "gold_0646",
+      "b": "gold_0649",
+      "score": 0.8261
+    },
+    {
+      "a": "gold_0656",
+      "b": "gold_0658",
+      "score": 0.8261
+    },
+    {
+      "a": "gold_0656",
+      "b": "gold_0659",
+      "score": 0.8261
+    },
+    {
+      "a": "gold_0781",
+      "b": "gold_0783",
+      "score": 0.8261
+    },
+    {
+      "a": "gold_0796",
+      "b": "gold_0798",
+      "score": 0.8261
+    },
+    {
+      "a": "gold_0830",
+      "b": "gold_0834",
+      "score": 0.8261
+    },
+    {
+      "a": "gold_0830",
+      "b": "gold_0836",
+      "score": 0.8261
+    },
+    {
+      "a": "gold_0834",
+      "b": "gold_0836",
+      "score": 0.8261
+    },
+    {
+      "a": "gold_0854",
+      "b": "gold_0855",
+      "score": 0.825
+    },
+    {
+      "a": "gold_0858",
+      "b": "gold_0859",
+      "score": 0.825
+    },
+    {
+      "a": "gold_0958",
+      "b": "gold_0959",
+      "score": 0.825
+    },
+    {
+      "a": "gold_0962",
+      "b": "gold_0963",
+      "score": 0.825
+    },
+    {
+      "a": "gold_0965",
+      "b": "gold_0968",
+      "score": 0.825
+    },
+    {
+      "a": "gold_1038",
+      "b": "gold_1039",
+      "score": 0.825
+    },
+    {
+      "a": "gold_1042",
+      "b": "gold_1043",
+      "score": 0.825
+    },
+    {
+      "a": "gold_0736",
+      "b": "gold_0740",
+      "score": 0.8235
+    },
+    {
+      "a": "gold_0877",
+      "b": "gold_0879",
+      "score": 0.8235
+    },
+    {
+      "a": "gold_0877",
+      "b": "gold_0881",
+      "score": 0.8235
+    },
+    {
+      "a": "gold_0877",
+      "b": "gold_0883",
+      "score": 0.8235
+    },
+    {
+      "a": "gold_0925",
+      "b": "gold_0927",
+      "score": 0.8235
+    },
+    {
+      "a": "gold_0925",
+      "b": "gold_0929",
+      "score": 0.8235
+    },
+    {
+      "a": "gold_0925",
+      "b": "gold_0931",
+      "score": 0.8235
+    },
+    {
+      "a": "gold_0949",
+      "b": "gold_0951",
+      "score": 0.8235
+    },
+    {
+      "a": "gold_0949",
+      "b": "gold_0953",
+      "score": 0.8235
+    },
+    {
+      "a": "gold_0949",
+      "b": "gold_0955",
+      "score": 0.8235
+    },
+    {
+      "a": "gold_1005",
+      "b": "gold_1007",
+      "score": 0.8235
+    },
+    {
+      "a": "gold_1005",
+      "b": "gold_1009",
+      "score": 0.8235
+    },
+    {
+      "a": "gold_1005",
+      "b": "gold_1011",
+      "score": 0.8235
+    },
+    {
+      "a": "gold_1013",
+      "b": "gold_1015",
+      "score": 0.8235
+    },
+    {
+      "a": "gold_1013",
+      "b": "gold_1017",
+      "score": 0.8235
+    },
+    {
+      "a": "gold_1013",
+      "b": "gold_1019",
+      "score": 0.8235
+    },
+    {
+      "a": "gold_0974",
+      "b": "gold_0978",
+      "score": 0.8222
+    },
+    {
+      "a": "gold_0974",
+      "b": "gold_0980",
+      "score": 0.8222
+    },
+    {
+      "a": "gold_0978",
+      "b": "gold_0980",
+      "score": 0.8222
+    },
+    {
+      "a": "gold_0821",
+      "b": "gold_0822",
+      "score": 0.8214
+    },
+    {
+      "a": "gold_0821",
+      "b": "gold_0826",
+      "score": 0.8214
+    },
+    {
+      "a": "gold_0821",
+      "b": "gold_0828",
+      "score": 0.8214
+    },
+    {
+      "a": "gold_0909",
+      "b": "gold_0910",
+      "score": 0.8214
+    },
+    {
+      "a": "gold_0909",
+      "b": "gold_0914",
+      "score": 0.8214
+    },
+    {
+      "a": "gold_0909",
+      "b": "gold_0916",
+      "score": 0.8214
+    },
+    {
+      "a": "gold_0941",
+      "b": "gold_0942",
+      "score": 0.8214
+    },
+    {
+      "a": "gold_0941",
+      "b": "gold_0946",
+      "score": 0.8214
+    },
+    {
+      "a": "gold_0941",
+      "b": "gold_0948",
+      "score": 0.8214
+    },
+    {
+      "a": "gold_0838",
+      "b": "gold_0839",
+      "score": 0.8205
+    },
+    {
+      "a": "gold_0842",
+      "b": "gold_0843",
+      "score": 0.8205
+    },
+    {
+      "a": "gold_0846",
+      "b": "gold_0847",
+      "score": 0.8205
+    },
+    {
+      "a": "gold_0850",
+      "b": "gold_0851",
+      "score": 0.8205
+    },
+    {
+      "a": "gold_0853",
+      "b": "gold_0856",
+      "score": 0.8205
+    },
+    {
+      "a": "gold_0957",
+      "b": "gold_0960",
+      "score": 0.8205
+    },
+    {
+      "a": "gold_0990",
+      "b": "gold_0991",
+      "score": 0.8205
+    },
+    {
+      "a": "gold_0994",
+      "b": "gold_0995",
+      "score": 0.8205
+    },
+    {
+      "a": "gold_1037",
+      "b": "gold_1040",
+      "score": 0.8205
+    },
+    {
+      "a": "gold_1046",
+      "b": "gold_1047",
+      "score": 0.8205
+    },
+    {
+      "a": "gold_1050",
+      "b": "gold_1051",
+      "score": 0.8205
+    }
+  ],
+  "policy": {
+    "delete_automatically": false,
+    "holdout_must_not_be_added": true,
+    "manual_review_required": true
+  }
+}
