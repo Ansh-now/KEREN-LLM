@@ -6,6 +6,7 @@ Key differences from the legacy trainer:
 - shared explicit KEREN female/execution policy
 - prompt tokens masked from loss; only assistant answer tokens supervised
 - hard preflight checks for template availability and mask boundary correctness
+- CPU-safe --validate-only mode that exits before any model/GPU training setup
 """
 from __future__ import annotations
 
@@ -45,6 +46,11 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--logging-steps", type=int, default=5)
     p.add_argument("--warmup-ratio", type=float, default=0.05)
     p.add_argument("--seed", type=int, default=42)
+    p.add_argument(
+        "--validate-only",
+        action="store_true",
+        help="Validate dataset/chat-template/assistant-only masking on CPU and exit before model loading/training.",
+    )
     return p.parse_args()
 
 
@@ -124,12 +130,9 @@ def build_dataset(rows: list[dict], tokenizer, max_length: int) -> Dataset:
 
 def main() -> int:
     args = parse_args()
-    if not torch.cuda.is_available():
-        raise SystemExit("CUDA GPU required for QLoRA training")
 
     random.seed(args.seed)
     torch.manual_seed(args.seed)
-    torch.cuda.manual_seed_all(args.seed)
 
     rows = load_rows(args.dataset)
     tokenizer = AutoTokenizer.from_pretrained(args.model, trust_remote_code=True)
@@ -147,6 +150,14 @@ def main() -> int:
     print(f"Token lengths: min={min(lengths)} max={max(lengths)} avg={sum(lengths)/len(lengths):.1f}")
     print(f"Supervised answer tokens: min={min(supervised)} max={max(supervised)} avg={sum(supervised)/len(supervised):.1f}")
     print("FORMAT CHECK PASS: native chat template + assistant-only loss")
+
+    if args.validate_only:
+        print("VALIDATION ONLY PASS: no model weights loaded and no training started")
+        return 0
+
+    if not torch.cuda.is_available():
+        raise SystemExit("CUDA GPU required for QLoRA training")
+    torch.cuda.manual_seed_all(args.seed)
 
     compute_dtype = torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16
     quant = BitsAndBytesConfig(
